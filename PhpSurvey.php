@@ -122,7 +122,7 @@
 			echo "<p>You like clowns.</p>";
 			}
 			else{
-				echo "<p>You like clowns.</p>";	
+				echo "<p>You don't like clowns.</p>";	
 			}
 		}
 		echo "<a href='index.html'>
