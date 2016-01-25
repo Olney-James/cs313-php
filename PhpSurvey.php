@@ -9,7 +9,7 @@
 			h1 {
 				color: red;
 				text-align: center;
-				font-family: "Magneto";
+				font-family: 'Magneto';
 			}
 		</style>";
 		echo "<h1>Results</h1>";
@@ -124,7 +124,7 @@
 				echo "<p>You said you don't like clowns</p>";	
 			}
 		}
-		echo "<a href="index.html">
+		echo "<a href='index.html'>
 			<h3>Home</h3>
 		</a>";
 ?>
