@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>PHP SURVEY</title>
+		<meta charset="utf-8"/>
+		<style>
+			body {
+				background-color: whitesmoke;
+			}
+
+			h1 {
+				color: red;
+				text-align: center;
+				font-family: "Magneto";
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<H1>PHP SURVEY</H1>
+			<form action="Test.php" method="post">
+				<legend>Do you like balloons?</legend>
+					<p>
+						<input type="radio" name="balloon" value="1"/>    Yes     
+						<input type="radio" name="balloon" value="0"/>    No<br/>
+					</p>
+				
+				<legend>Do you like cake?</legend>
+					<p>
+						<input type="radio" name="balloon" value="1"/>    Yes     
+						<input type="radio" name="balloon" value="0"/>    No<br/>
+					</p>
+					
+				<legend>Do you like presents?</legend>
+					<p>
+						<input type="radio" name="balloon" value="1"/>    Yes     
+						<input type="radio" name="balloon" value="0"/>    No<br/>
+					</p>
+					
+				<legend>Do you like clowns?</legend>
+					<p>
+						<input type="radio" name="balloon" value="1"/>    Yes     
+						<input type="radio" name="balloon" value="0"/>    No<br/>
+					</p>
+				<p align="center"><input type="submit" name="submit" value="Submit Form"/></p>	
+			</form>
+			
+			<form action="displayResults.php" method="post">
+				
+				<p align="center"><input type="submit" name="submit" value="View Results Without Voting"/></p>	
+			</form>
+
+			<a href="index.html">
+				<h3>Home</h3>
+			</a>
+		</center>
+	</body>
+</html>

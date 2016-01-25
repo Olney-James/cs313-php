@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Team 2 Readiness Activity</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<form action="handle_form.php" method="post">
+		<fieldset><legend>Please complete the following form</legend>
+			<p><label>Name: <input type="text" name="name" size="20" maxlength="40"/></label></p>
+			<p><label>Email: <input type="text" name="email" size="40" maxlength="60"/></label></p>
+		
+			<!-- Create Radio Button -->
+			<p><label for="major">Major: </label><br/>
+				<input type="radio" name="major" value="Computer Science"/>    Computer Science<br/>
+				<input type="radio" name="major" value="Web Development and Design"/>    Web Development and Design<br/>
+				<input type="radio" name="major" value="Computer Information Technology"/>    Computer Information Technology<br/>
+				<input type="radio" name="major" value="Computer Engineering"/>    Computer Engineering<br/>
+			</p>
+
+			<!-- Create checkbox -->
+			<p><label>Please check places you have visited: </label><br/>
+				<input type="checkbox" name="visited[]" value="North America"/>    North America<br/>
+				<input type="checkbox" name="visited[]" value="South America"/>    South America<br/>
+				<input type="checkbox" name="visited[]" value="Europe"/>    Europe<br/>
+				<input type="checkbox" name="visited[]" value="Asia"/>    Asia<br/>
+				<input type="checkbox" name="visited[]" value="Australia"/>    Australia<br/>
+				<input type="checkbox" name="visited[]" value="Africa"/>    Africa<br/>
+				<input type="checkbox" name="visited[]" value="Antartica"/>Antartica<br/>
+			</p>
+
+			<!-- Create comments text box -->
+			<p><label>Comments: <textarea name="comments" rows="3" cols="30"></textarea></label></p>
+		</fieldset>		
+		<!-- Submit Button -->
+		<p align="center"><input type="submit" name="submit" value="Submit Form"/></p>		
+		</form>
+	</body>
+</html>

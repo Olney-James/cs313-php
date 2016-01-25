@@ -15,6 +15,31 @@
 				color:whitesmoke;
 				text-align:center;
 			}
+			div.img {
+				background-color: red;
+				height: 160px;
+				width: 160px;
+				box-shadow: 5px 5px 5px black;
+				float: left;
+				position:relative;
+				color: whitesmoke;
+				font-size: 24;
+			}
+			div.assignments {
+				background-color: red;
+				height: 160px;
+				width: 160px;
+				box-shadow: 5px 5px 5px black;
+				float: right;
+				position:relative;
+				color: whitesmoke;
+				font-size: 24;
+			}
+			div.container {
+				height: 200px;
+				width: 360px;
+				position:relative;
+			}
 		</style>
 		
       <TITLE>
@@ -22,7 +47,27 @@
       </TITLE>
    </HEAD>
 <BODY>
-   <H1>Coming Soon</H1>  
+   <H1>Assignments</H1>
+<center>
+   <div class='container'>
+   <a href="PhpSurvey.html">
+   <div class='img' onmouseover="bigBox(this)" onmouseout="normalBox(this)">PHP Survey</div>
+   </a>
+   <a href="handle_form.html">
+		<div class='assignments' onmouseover="bigBox(this)" onmouseout="normalBox(this)">Handle Form</div>
+   </a>
+   </div>
+   </center>
+	<script>
+			function bigBox(x) {
+				x.style.height = "200px";
+				x.style.width = "200px";
+			}
+			function normalBox(x) {
+				x.style.height = "160px";
+				x.style.width = "160px";
+			}
+	</script>
    <a href="index.html">
 		<h3>Home</h3>
 	</a>
