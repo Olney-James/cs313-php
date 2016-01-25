@@ -93,7 +93,7 @@
 			$cakeYes, $cakeNo, $cakeNoPercent, $cakeYesPercent,
 			$presentsYes, $presentsNo, $presentsNoPercent, $presentsYesPercent,
 			$clownsYes, $clownsNo, $clownsNoPercent, $clownsYesPercent;
-			echo "<br>";			
+			echo "<br></br>";			
 			echo "<p>$balloonYesPercent% "." of people like balloons.</p>";
 			echo "<p>$cakeYesPercent% of people like cake.</p>";
 			echo "<p>$presentsYesPercent% of people like presents.</p>";

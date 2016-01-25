@@ -36,7 +36,7 @@
 	echo "<p>$cakeYesPercent% of people like cake.</p>";
 	echo "<p>$presentsYesPercent% of people like presents.</p>";
 	echo "<p>$clownsYesPercent% of people like clowns.</p>";
-	echo "<br></br>";
+	echo "<br>";
 	
 	if(isset($_SESSION['balloon'])){
 		if($_SESSION['balloon'] == 1) {
