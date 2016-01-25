@@ -24,14 +24,14 @@
 		$clownsYes = trim(fgets($myfile));
 		$clownsNo = trim(fgets($myfile));
 
-		$balloonNoPercent = ($balloonNo/($balloonYes + $balloonNo)) * 100;
-		$balloonYesPercent = ($balloonYes/($balloonYes + $balloonNo)) * 100;
-		$cakeNoPercent = ($cakeNo/($cakeYes + $cakeNo)) * 100;
-		$cakeYesPercent = ($cakeYes/($cakeYes + $cakeNo)) * 100;
-		$presentsNoPercent = ($presentsNo/($presentsYes + $presentsNo)) * 100;
-		$presentsYesPercent = ($presentsYes/($presentsYes + $presentsNo)) * 100;
-		$clownsNoPercent = ($clownsNo/($clownsYes + $clownsNo)) * 100;
-		$clownsYesPercent = ($clownsYes/($clownsYes + $clownsNo)) * 100;
+		$balloonNoPercent = round((($balloonNo/($balloonYes + $balloonNo)) * 100), 2);
+		$balloonYesPercent = round((($balloonYes/($balloonYes + $balloonNo)) * 100), 2);
+		$cakeNoPercent = round((($cakeNo/($cakeYes + $cakeNo)) * 100), 2);
+		$cakeYesPercent = round((($cakeYes/($cakeYes + $cakeNo)) * 100), 2);
+		$presentsNoPercent = round((($presentsNo/($presentsYes + $presentsNo)) * 100), 2);
+		$presentsYesPercent = round((($presentsYes/($presentsYes + $presentsNo)) * 100), 2);
+		$clownsNoPercent = round((($clownsNo/($clownsYes + $clownsNo)) * 100), 2);
+		$clownsYesPercent = round((($clownsYes/($clownsYes + $clownsNo)) * 100), 2);
 			
 		if(isset($_SESSION['clowns'])){
 			echo "You have already voted. Thank you.";
@@ -76,14 +76,14 @@
 			
 			$myfile = fopen("results.txt", "w");
 			fwrite($myfile, "$balloonYes\n$balloonNo\n$cakeYes\n$cakeNo\n$presentsYes\n$presentsNo\n$clownsYes\n$clownsNo");
-			$balloonNoPercent = ($balloonNo/($balloonYes + $balloonNo)) * 100;
-			$balloonYesPercent = ($balloonYes/($balloonYes + $balloonNo)) * 100;
-			$cakeNoPercent = ($cakeNo/($cakeYes + $cakeNo)) * 100;
-			$cakeYesPercent = ($cakeYes/($cakeYes + $cakeNo)) * 100;
-			$presentsNoPercent = ($presentsNo/($presentsYes + $presentsNo)) * 100;
-			$presentsYesPercent = ($presentsYes/($presentsYes + $presentsNo)) * 100;
-			$clownsNoPercent = ($clownsNo/($clownsYes + $clownsNo)) * 100;
-			$clownsYesPercent = ($clownsYes/($clownsYes + $clownsNo)) * 100;
+			$balloonNoPercent = round((($balloonNo/($balloonYes + $balloonNo)) * 100), 2);
+			$balloonYesPercent = round((($balloonYes/($balloonYes + $balloonNo)) * 100), 2);
+			$cakeNoPercent = round((($cakeNo/($cakeYes + $cakeNo)) * 100), 2);
+			$cakeYesPercent = round((($cakeYes/($cakeYes + $cakeNo)) * 100), 2);
+			$presentsNoPercent = round((($presentsNo/($presentsYes + $presentsNo)) * 100), 2);
+			$presentsYesPercent = round((($presentsYes/($presentsYes + $presentsNo)) * 100), 2);
+			$clownsNoPercent = round((($clownsNo/($clownsYes + $clownsNo)) * 100), 2);
+			$clownsYesPercent = round((($clownsYes/($clownsYes + $clownsNo)) * 100), 2);
 			displayResults();
 		}
 
