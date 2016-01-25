@@ -92,36 +92,37 @@
 			global $balloonYes, $balloonNo, $balloonNoPercent, $balloonYesPercent,
 			$cakeYes, $cakeNo, $cakeNoPercent, $cakeYesPercent,
 			$presentsYes, $presentsNo, $presentsNoPercent, $presentsYesPercent,
-			$clownsYes, $clownsNo, $clownsNoPercent, $clownsYesPercent;			
-			echo "<p>$balloonYesPercent% "." of people like balloons</p>";
-			echo "<p>$cakeYesPercent% of people like cake</p>";
-			echo "<p>$presentsYesPercent% of people like presents</p>";
-			echo "<p>$clownsYesPercent% of people like clowns</p>";
-			echo "<p></p>";
+			$clownsYes, $clownsNo, $clownsNoPercent, $clownsYesPercent;
+			echo "<br>";			
+			echo "<p>$balloonYesPercent% "." of people like balloons.</p>";
+			echo "<p>$cakeYesPercent% of people like cake.</p>";
+			echo "<p>$presentsYesPercent% of people like presents.</p>";
+			echo "<p>$clownsYesPercent% of people like clowns.</p>";
+			echo "<br>";
 			
 			if($_SESSION['balloon'] == 1) {
-			echo "<p>You said you like balloons</p>";
+			echo "<p>You like balloons.</p>";
 			}
 			else{
-				echo "<p>You said you don't like balloons</p>";	
+				echo "<p>You don't like balloons.</p>";	
 			}
 			if($_SESSION['cake'] == 1) {
-			echo "<p>You said you like cake</p>";
+			echo "<p>You like cake.</p>";
 			}
 			else{
-				echo "<p>You said you don't like cake</p>";	
+				echo "<p>You don't like cake.</p>";	
 			}
 			if($_SESSION['presents'] == 1) {
-			echo "<p>You said you like presents</p>";
+			echo "<p>You like presents.</p>";
 			}
 			else{
-				echo "<p>You said you don't like presents</p>";	
+				echo "<p>You don't like presents.</p>";	
 			}
 			if($_SESSION['clowns'] == 1) {
-			echo "<p>You said you like clowns</p>";
+			echo "<p>You like clowns.</p>";
 			}
 			else{
-				echo "<p>You said you don't like clowns</p>";	
+				echo "<p>You like clowns.</p>";	
 			}
 		}
 		echo "<a href='index.html'>
