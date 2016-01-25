@@ -64,10 +64,10 @@
 			echo "<p>You said you don't like clowns</p>";	
 		}
 	}
-	echo "<a href="PhpSurvey.html">
+	echo "<a href='PhpSurvey.html'>
 			<h3>Return to Vote</h3>
 		</a>";
-	echo "<a href="index.html">
+	echo "<a href='index.html'>
 			<h3>Home</h3>
 		</a>";
 ?>
