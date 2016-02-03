@@ -7,14 +7,21 @@ function test() {
 	$dsn = 'mysql:host='.$server.';dbname='.$database;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	try {
-		$g1db = new PDO($dsn, $username, $password, $options);
-		return $g1db;
-	} 
-	catch (PDOException $ex) {
+	$g1db = new PDO('mysql:host=localhost;dbname=scriptures', $username, $password);
+return $g1db;
+}
+ 
+/*
+               try {
+                              $g1db = new PDO($dsn, $username, $password, $options);
+                              return $g1db;
+               }
+               catch (PDOException $ex) {
         $error_message = $ex->getMessage();
         exit();
-	}
+               }
+}
+*/
 }
 
 $test = test();
