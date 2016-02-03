@@ -1,5 +1,7 @@
 <?php
 function test() {
+	
+
 	$server  = 'localhost:8080';
 	$database = 'scriptures';
 	$username = 'php';
@@ -17,6 +19,14 @@ function test() {
 		
 }
 
+/* test stuff */
+	$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
+	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
+	$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br />\n";
+	/* test stuff */
+	
 $test = test();
 
 function viewScriptures() {
