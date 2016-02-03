@@ -2,7 +2,6 @@
 function test() {
 	
 	$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$database = 'scriptures';
 	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
@@ -18,14 +17,6 @@ function test() {
 	} 
 		
 }
-
-/* test stuff 
-	$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
-	$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br />\n";
-	 test stuff */
 	
 $test = test();
 
