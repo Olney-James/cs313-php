@@ -4,8 +4,8 @@ function test() {
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database;
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION';port=8080');
+	$dsn = 'mysql:host='.$server.';dbname='.$database';port=8080';
+	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
 	try{
 		$g1db = new PDO($dsn, $username, $password);
