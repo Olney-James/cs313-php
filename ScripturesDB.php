@@ -4,25 +4,18 @@ function test() {
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database;
+	$dsn = 'mysql:host='.$server.';dbname='.$database.';';
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	$g1db = new PDO('mysql:host=localhost;dbname=scriptures', $username, $password);
-return $g1db;
-}
- 
-/*
-               try {
-                              $g1db = new PDO($dsn, $username, $password, $options);
-                              return $g1db;
-               }
-               catch (PDOException $ex) {
+	try {
+		$g1db = new PDO($dsn, $username, $password, $options);
+		return $g1db;
+	} 
+	catch (PDOException $ex) {
         $error_message = $ex->getMessage();
         exit();
-               }
+	}
 }
-*/
-
 
 $test = test();
 
@@ -32,7 +25,7 @@ function viewScriptures() {
 	FROM Scriptures
 	INNER JOIN Books
 	ON Scriptures.book_id = Books.book_id
-	ORDER BY Books.name';
+	ORDER BY Books.name;';
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$scriptures = $statement->fetchAll();
@@ -50,7 +43,7 @@ function viewScripturesByBook($book_id = "-1") {
 		INNER JOIN Books
 		ON Scriptures.book_id = Books.book_id
 		WHERE Scriptures.book_id = :book_id
-		ORDER BY Books.name';
+		ORDER BY Books.name;';
 		$statement = $test->prepare($query);
 		$statement->bindValue(":book_id", $book_id);
 		$statement->execute();

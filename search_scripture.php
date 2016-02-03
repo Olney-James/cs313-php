@@ -4,32 +4,25 @@ function test() {
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database;
+	$dsn = 'mysql:host='.$server.';dbname='.$database';';
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	$g1db = new PDO('mysql:host=localhost;dbname=scriptures', $username, $password);
-return $g1db;
-}
- 
-/*
-               try {
-                              $g1db = new PDO($dsn, $username, $password, $options);
-                              return $g1db;
-               }
-               catch (PDOException $ex) {
+	try {
+		$g1db = new PDO($dsn, $username, $password, $options);
+		return $g1db;
+	} 
+	catch (PDOException $ex) {
         $error_message = $ex->getMessage();
         exit();
-               }
+	}
 }
-*/
-
 
 $test = test();
 
 function viewBooks() {
 	global $test;
 	$query = 'SELECT * FROM Books
-	ORDER BY book_id';
+	ORDER BY book_id;';
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$books = $statement->fetchAll();
