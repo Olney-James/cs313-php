@@ -6,16 +6,14 @@ function test() {
 	$password = 'php-pass';
 	$dsn = 'mysql:host='.$server.';dbname='.$database;
 
-/*	try{
+	try{
 		$g1db = new PDO($dsn, $username, $password);
 
 	}
 	catch (PDOException $ex){
 		echo 'Error!:' . $ex->getMessage();
 		die();
-	} */
-	
-	$g1db = new PDO($dsn, $username, $password);
+	} 
 	return $g1db;
 }
 
