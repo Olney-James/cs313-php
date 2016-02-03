@@ -1,10 +1,10 @@
 <?php
 function test() {
-	$server  = '127.0.0.1';
+	$server  = 'localhost';
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database.';port=8080';
+	$dsn = 'mysql:host='.$server.';dbname='.$database;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
 	try{
