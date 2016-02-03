@@ -1,14 +1,14 @@
 <?php
 function test() {
 	$server  = 'localhost';
-	$database = 'test';
+	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'localhost'.$server.'scriptues'.$database;
+	$dsn = 'localhost'.$server.'scriptures'.$database;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-		$g1db = new PDO($dsn, $username, $password, $options);
-		return $g1db;
+	$g1db = new PDO('mysql:host=localhost;dbname=scriptures', $username, $password);
+	return $g1db;
 }
 
 $test = test();
@@ -28,7 +28,7 @@ $books = viewBooks();
 ?>
 <article>
 	<h1>Search Scripture</h1>
-	<form action="testdb.php" method="post">
+	<form action="ScripturesDB.php" method="post">
 		<label>Select Book</label>
 		<select class="form-control" name="book" >
 			<option value="all">All</option>
