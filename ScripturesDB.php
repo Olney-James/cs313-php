@@ -22,7 +22,7 @@ return $g1db;
                }
 }
 */
-}
+
 
 $test = test();
 
