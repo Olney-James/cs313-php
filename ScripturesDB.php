@@ -1,7 +1,7 @@
 <?php
 function test() {
 	$server  = 'localhost';
-	$database = 'test';
+	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
 	$dsn = 'localhost'.$server.'scriptures'.$database;
