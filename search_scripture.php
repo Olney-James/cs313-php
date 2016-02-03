@@ -7,7 +7,7 @@ function test() {
 	$dsn = 'localhost'.$server.'scriptures'.$database;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	$g1db = new PDO('mysql:host=localhost;dbname=scriptures', $username, $password);
+	$g1db = new PDO('mysql:host=localhost:8080;dbname=scriptures', $username, $password);
 	return $g1db;
 }
 
