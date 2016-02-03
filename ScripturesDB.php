@@ -61,7 +61,7 @@ if (!isset($book) || $book == "all"){
 		<?php foreach ($scriptures as $scripture): ?>
 			<li>
 				<strong>
-					<?php echo $scripture['book']; ?>&nbsp;
+					<?php echo $scripture['name']; ?>&nbsp;
 					<?php echo $scripture['chapter']; ?>:
 					<?php echo $scripture['verse']; ?>
 				</strong>
