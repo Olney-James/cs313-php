@@ -1,6 +1,6 @@
 <?php
 function test() {
-	$server  = 'localhost:8080';
+	$server  = 'localhost';
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
