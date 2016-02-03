@@ -1,16 +1,22 @@
 <?php
 function test() {
-	$server  = '127.0.0.1';
+	$server  = '127.0.0.1:8080';
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
 	$dsn = 'mysql:host='.$server.';dbname='.$database.;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-
+	try{
 		$g1db = new PDO($dsn, $username, $password);
-		return $g1db;
 
+	}
+	catch (PDOException $ex){
+		echo 'Error!:' . $ex->getMessage();
+		die();
+	}
+		
+		return $g1db;
 }
 
 $test = test();
