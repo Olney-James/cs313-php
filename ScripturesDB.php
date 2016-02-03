@@ -1,10 +1,10 @@
 <?php
 function test() {
-	$server  = 'localhost';
+	$server  = '127.0.0.1';
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database.';';
+	$dsn = 'mysql:host='.$server.';dbname='.$database.;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
 	try {
@@ -25,7 +25,7 @@ function viewScriptures() {
 	FROM Scriptures
 	INNER JOIN Books
 	ON Scriptures.book_id = Books.book_id
-	ORDER BY Books.name;';
+	ORDER BY Books.name';
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$scriptures = $statement->fetchAll();
@@ -43,7 +43,7 @@ function viewScripturesByBook($book_id = "-1") {
 		INNER JOIN Books
 		ON Scriptures.book_id = Books.book_id
 		WHERE Scriptures.book_id = :book_id
-		ORDER BY Books.name;';
+		ORDER BY Books.name';
 		$statement = $test->prepare($query);
 		$statement->bindValue(":book_id", $book_id);
 		$statement->execute();
