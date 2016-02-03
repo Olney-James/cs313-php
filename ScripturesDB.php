@@ -1,12 +1,12 @@
 <?php
 function test() {
 	
-
-	$server  = 'localhost:8080';
+	$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
+	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$database = 'scriptures';
-	$username = 'php';
-	$password = 'php-pass';
-	$dsn = 'mysql:host='.$server.';dbname='.$database;
+	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	$dsn = 'mysql:host='.$server:$dbPort';dbname='.$database;
 
 	try{
 		$g1db = new PDO($dsn, $username, $password);
@@ -19,13 +19,13 @@ function test() {
 		
 }
 
-/* test stuff */
+/* test stuff 
 	$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
 	$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 	echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br />\n";
-	/* test stuff */
+	 test stuff */
 	
 $test = test();
 
