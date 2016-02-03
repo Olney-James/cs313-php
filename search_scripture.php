@@ -8,13 +8,13 @@ function test() {
 
 	try{
 		$g1db = new PDO($dsn, $username, $password);
-
+		return $g1db;
 	}
 	catch (PDOException $ex){
 		echo 'Error!:' . $ex->getMessage();
 		die();
 	} 
-	return $g1db;
+	
 }
 
 $test = test();
