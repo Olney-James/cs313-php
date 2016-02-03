@@ -8,7 +8,7 @@ function test() {
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
 	try{
-		$g1db = new PDO($dsn, $username, $password);
+		$g1db = new PDO($dsn, $username, $password, $options);
 
 	}
 	catch (PDOException $ex){
