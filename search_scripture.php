@@ -1,13 +1,13 @@
 <?php
 function test() {
-	$server  = 'localhost';
+	$server  = 'localhost:8080';
 	$database = 'scriptures';
 	$username = 'php';
 	$password = 'php-pass';
-	$dsn = 'localhost:8080'.$server.'scriptures'.$database;
+	$dsn = 'mysql:host='.$server.';dbname='.$database;
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	$g1db = new PDO('mysql:host=localhost:8080;dbname=scriptures', $username, $password);
+	$g1db = new PDO($dsn, $username, $password);
 	return $g1db;
 }
 
