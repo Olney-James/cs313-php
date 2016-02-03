@@ -5,17 +5,16 @@ function test() {
 	$username = 'php';
 	$password = 'php-pass';
 	$dsn = 'mysql:host='.$server.';dbname='.$database;
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 
-	try{
-		$g1db = new PDO($dsn, $username, $password, options);
+/*	try{
+		$g1db = new PDO($dsn, $username, $password);
 
 	}
 	catch (PDOException $ex){
 		echo 'Error!:' . $ex->getMessage();
 		die();
-	}
-		
+	} */
+		$g1db = new PDO($dsn, $username, $password);
 		return $g1db;
 }
 
