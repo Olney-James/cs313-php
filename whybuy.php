@@ -47,7 +47,7 @@
    <H1>WhyBuy</H1>
 	<div class='assignments'>
 	<?php
-			print("user:"."\n"."email");
+			print("user: "."\n"."email: ");
 	?>
 	</div>
 	
