@@ -50,10 +50,7 @@
    <H1>WhyBuy</H1>
 	<div class='assignments'>
 	<?php
-		displayUser(){
-			echo "user:".<br>."email";
-		}
-		displayUser();
+			fwrite("user:\n email");
 	?>
 	</div>
 	
