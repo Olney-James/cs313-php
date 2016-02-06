@@ -46,10 +46,10 @@
 <BODY>
    <H1>WhyBuy</H1>
 	<div class='assignments'>
-	<?php
+	<script>
 			println("user: ");
 			println("email: ");
-	?>
+	</script>
 	</div>
 	
    <a href="index.html">
