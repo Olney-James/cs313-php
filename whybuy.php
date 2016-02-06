@@ -26,14 +26,11 @@
 				font-size: 24;
 			}
 			div.assignments {
-				background-color: red;
-				height: 160px;
+				height: 80px;
 				width: 160px;
 				box-shadow: 5px 5px 5px black;
 				float: right;
 				position:relative;
-				color: whitesmoke;
-				font-size: 24;
 			}
 			div.container {
 				height: 200px;
@@ -43,7 +40,7 @@
 		</style>
 		
       <TITLE>
-         Assignments
+         WhyBuy
       </TITLE>
    </HEAD>
 <BODY>
