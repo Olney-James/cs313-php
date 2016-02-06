@@ -37,7 +37,7 @@
 			}
 			div.container {
 				height: 200px;
-				width: 540px;
+				width: 380px;
 				position:relative;
 			}
 		</style>
