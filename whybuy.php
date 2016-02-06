@@ -48,7 +48,7 @@
 	<div class='assignments'>
 	<?php
 			print("user: ");
-			print("/n");
+			print("\n");
 			print("email: ");
 	?>
 	</div>
