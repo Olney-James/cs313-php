@@ -48,7 +48,15 @@
    </HEAD>
 <BODY>
    <H1>WhyBuy</H1>
-
+	<div class='assignments'>
+	<?php
+		displayUser(){
+			echo "user:".<br>."email";
+		}
+		displayUser();
+	?>
+	</div>
+	
    <a href="index.html">
 		<h3>Home</h3>
 	</a>
