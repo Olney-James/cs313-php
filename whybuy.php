@@ -47,7 +47,7 @@
    <H1>WhyBuy</H1>
 	<div class='assignments'>
 	<?php
-			fwrite("user:\n email");
+			printf("user:\n email");
 	?>
 	</div>
 	
