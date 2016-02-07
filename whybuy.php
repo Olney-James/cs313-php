@@ -1,3 +1,95 @@
+<?php
+	function test() {
+	
+	$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
+	$database = 'retail_site';
+	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	$dsn = 'mysql:host='.$server.';dbname='.$database;
+
+	try{
+		$g1db = new PDO($dsn, $username, $password);
+		return $g1db;
+	}
+	catch (PDOException $ex){
+		echo 'Error!:' . $ex->getMessage();
+		die();
+	} 
+		
+	}
+		
+	$test = test();
+	
+	function getItemName(int $item_id) {
+	global $test;
+	$query = 'SELECT item_name
+	FROM item
+	WHERE item_id = $item_id';
+	$statement = $test->prepare($query);
+	$statement->execute();
+	$itemName = $statement->fetchAll();
+	$statement->closeCursor();
+	return $itemName;
+	}
+
+	function getPrice(int $item_id) {
+		global $test;
+		$query = 'SELECT price
+		FROM item
+		WHERE item_id = $item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$price = $statement->fetchAll();
+		$statement->closeCursor();
+		return $price;
+	}
+	
+	function getUrl(int $item_id) {
+		global $test;
+		$query = 'SELECT url
+		FROM item
+		WHERE item_id = $item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$url = $statement->fetchAll();
+		$statement->closeCursor();
+		return $url;
+	}
+	
+	function getImage_link(int $item_id) {
+		global $test;
+		$query = 'SELECT image_link
+		FROM item
+		WHERE item_id = $item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$image_link = $statement->fetchAll();
+		$statement->closeCursor();
+		return $image_link;
+	}
+	
+	function getGenre(int $item_id) {
+		global $test;
+		$query = 'SELECT genre
+		FROM item
+		WHERE item_id = $item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$genre = $statement->fetchAll();
+		$statement->closeCursor();
+		return $genre;
+	}
+	
+	function writeItemsToArray(){
+		$items =  array();
+		for($x = 1; $item_id != NULL; $x++) {
+		$items[$x] = (string)getItemName($x).(string)getPrice($x).(string)getUrl($x).(string)getImage_link($x).(string)getGenre($x);
+		}
+		return $items;
+	}
+	
+	$items = writeItemsToArray();
+?>
 <HTML>
    <HEAD>
 	   <style>
@@ -11,32 +103,14 @@
 				font-family: "Magneto"
 			}
 			
-			h3 {
-				color:whitesmoke;
-				text-align:center;
-			}
-			div.img {
-				background-color: red;
-				height: 160px;
-				width: 160px;
-				box-shadow: 5px 5px 5px black;
-				float: left;
-				position:relative;
-				color: whitesmoke;
-				font-size: 24;
-			}
-			div.assignments {
+			div.user {
 				height: 80px;
 				width: 160px;
 				box-shadow: 5px 5px 5px black;
 				float: right;
 				position:relative;
 			}
-			div.container {
-				height: 200px;
-				width: 380px;
-				position:relative;
-			}
+			
 		</style>
 		
       <TITLE>
@@ -45,13 +119,23 @@
    </HEAD>
 <BODY>
    <H1>WhyBuy</H1>
-	<div class='assignments'>
-	<?php
+   
+	<?php foreach ($items as $item): ?>
+			<li>
+				<strong>
+					<?php echo $item; ?>&nbsp;
+				</strong>
+			</li>
+		<?php endforeach; ?>
+		
+		
+<!--	<div class='user'>
+
 			print("user: ");
 			print("\r\n");
 			print("email: ");
-	?>
-	</div>
+	
+	</div> -->
 	
    <a href="index.html">
 		<h3>Home</h3>
