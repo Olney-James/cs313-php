@@ -14,8 +14,7 @@ function test() {
 			echo 'Error!:' . $ex->getMessage();
 			die();
 		} 	
-	}
-		
+	}	
 	$test = test();
 	
 	function viewtopics() {
@@ -28,8 +27,19 @@ function test() {
 		$statement->closeCursor();
 		return $topics;
 	}
-
 	$topics = viewtopics();
+	
+	function viewBooks() {
+		global $test;
+		$query = 'SELECT * FROM books
+		ORDER BY book_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$books = $statement->fetchAll();
+		$statement->closeCursor();
+		return $books;
+	}
+	$books = viewBooks();
 ?>
 <article>
 	<HEAD>
@@ -46,6 +56,13 @@ function test() {
 			<select class="form-control" name="topic" >
 				<?php foreach ($topics as $topic): ?>
 					<option value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?></option>
+				<?php endforeach; ?>
+			</select>
+			<label>Select Book</label>
+			<select class="form-control" name="book" >
+				<option value="all">All</option>
+				<?php foreach ($books as $book): ?>
+					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
 			</select>
 			<input type="submit" value="Send" class="btn btn-default">
