@@ -21,7 +21,7 @@ function test() {
 	function viewtopics() {
 		global $test;
 		$query = 'SELECT * FROM topics
-		ORDER BY topic ASC';
+		ORDER BY topic_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$topics = $statement->fetchAll();
