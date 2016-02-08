@@ -116,7 +116,7 @@ $users = viewusers();
 					<td><?php echo $item["item_name"]; ?></td>
 					<td>$<?php echo $item["price"]; ?></td>
 					<td><?php echo $item["genre"]; ?></td>
-					<td><?php $item["image_link"] ?></td>
+					<td><?php echo $item["image_link"]; ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</table>	
