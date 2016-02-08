@@ -80,7 +80,7 @@
 	function viewusers() {
 		global $test;
 		$query = 'SELECT * FROM user_name
-		WHERE user_name=$_SESSION['user']
+		WHERE user_name=$_SESSION[\'user\']
 		ORDER BY user_id';
 		$statement = $test->prepare($query);
 		$statement->execute();
