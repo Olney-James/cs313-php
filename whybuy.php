@@ -127,6 +127,28 @@ $items = viewitems();
 				position:relative;
 			}
 			
+			<!--below style table detail-->
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			th, td {
+				padding: 5px;
+				text-align: left;
+			}
+			table#t01 tr:nth-child(even) {
+				background-color: #eee;
+			}
+			table#t01 tr:nth-child(odd) {
+			   background-color:#fff;
+			}
+			table#t01 th	{
+				background-color: black;
+				color: white;
+			}
 		</style>
 		
       <TITLE>
@@ -135,17 +157,15 @@ $items = viewitems();
    </HEAD>
 <BODY>
    <H1>WhyBuy</H1>
-   
-	<?php foreach ($items as $item): ?>
-			<li>
-				<strong>
-					<?php echo $item["item_name"]; ?>&nbsp;
-					<?php echo $item["price"]; ?>;
-					<?php echo $item["genre"]; ?>;
-				</strong>
-			</li>
+	<table id="t01">
+		<?php foreach ($items as $item): ?>
+			<tr>
+				<th><?php echo $item["item_name"]; ?></th>
+				<th><?php echo $item["price"]; ?></th>
+				<th><?php echo $item["genre"]; ?></th>
+			</tr>
 		<?php endforeach; ?>
-		
+	</table>	
 		
 <!--	<div class='user'>
 
