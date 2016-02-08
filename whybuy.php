@@ -66,7 +66,7 @@ $users = viewusers();
 				width: 160px;
 				box-shadow: 5px 5px 5px black;
 				float: right;
-				position:relative;
+				position:absolute;
 			}
 			
 			<!--below style table detail-->
@@ -105,12 +105,14 @@ $users = viewusers();
 			<th>Item</th>
 			<th>Price</th>		
 			<th>Genre</th>
+			<th>Image</th>
 		  </tr>
 		<?php foreach ($items as $item): ?>
 			<tr>
 				<td><?php echo $item["item_name"]; ?></td>
 				<td>$<?php echo $item["price"]; ?></td>
 				<td><?php echo $item["genre"]; ?></td>
+				<td><img src="<?php $item["image_link"] ?>" alt="image" ></td>
 			</tr>
 		<?php endforeach; ?>
 	</table>	
