@@ -158,10 +158,15 @@ $items = viewitems();
 <BODY>
    <H1>WhyBuy</H1>
 	<table id="t01">
+		<tr>
+			<th>Item</th>
+			<th>Price</th>		
+			<th>Genre</th>
+		  </tr>
 		<?php foreach ($items as $item): ?>
 			<tr>
 				<th><?php echo $item["item_name"]; ?></th>
-				<th><?php echo $item["price"]; ?></th>
+				<th>$<?php echo $item["price"]; ?></th>
 				<th><?php echo $item["genre"]; ?></th>
 			</tr>
 		<?php endforeach; ?>
