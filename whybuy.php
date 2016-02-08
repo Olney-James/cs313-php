@@ -35,76 +35,19 @@
 
 $items = viewitems();
 	
-	/*function getItemName(int $item_id) {
+	function viewusers() {
 	global $test;
-	$query = 'SELECT item_name
-	FROM item
-	WHERE item_id = $item_id';
+	$query = 'SELECT * FROM user_name
+	ORDER BY user_id';
 	$statement = $test->prepare($query);
 	$statement->execute();
-	$itemName = $statement->fetchAll();
+	$users = $statement->fetchAll();
 	$statement->closeCursor();
-	return $itemName;
-	}
+	return $users;
+}
 
-	function getPrice(int $item_id) {
-		global $test;
-		$query = 'SELECT price
-		FROM item
-		WHERE item_id = $item_id';
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$price = $statement->fetchAll();
-		$statement->closeCursor();
-		return $price;
-	}
+$users = viewusers();
 	
-	function getUrl(int $item_id) {
-		global $test;
-		$query = 'SELECT url
-		FROM item
-		WHERE item_id = $item_id';
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$url = $statement->fetchAll();
-		$statement->closeCursor();
-		return $url;
-	}
-	
-	function getImage_link(int $item_id) {
-		global $test;
-		$query = 'SELECT image_link
-		FROM item
-		WHERE item_id = $item_id';
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$image_link = $statement->fetchAll();
-		$statement->closeCursor();
-		return $image_link;
-	}
-	
-	function getGenre(int $item_id) {
-		global $test;
-		$query = 'SELECT genre
-		FROM item
-		WHERE item_id = $item_id';
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$genre = $statement->fetchAll();
-		$statement->closeCursor();
-		return $genre;
-	}
-	
-	function writeItemsToArray(){
-		$items =  array();
-		for($x = 1; $item_id != NULL; $x++) {
-		$items[$x] = (string)getItemName($x).(string)getPrice($x).(string)getUrl($x).(string)getImage_link($x).(string)getGenre($x);
-		}
-		return $items;
-	}
-	
-	$items = writeItemsToArray();
-	*/
 ?>
 <ARTICLE>
    <HEAD>
@@ -132,7 +75,7 @@ $items = viewitems();
 				width:100%;
 			}
 			table, th, td {
-				border: 1px solid black;
+				border: 1px solid red;
 				border-collapse: collapse;
 			}
 			th, td {
@@ -146,7 +89,7 @@ $items = viewitems();
 			   background-color:#fff;
 			}
 			table#t01 th	{
-				background-color: black;
+				background-color: red;
 				color: white;
 			}
 		</style>
@@ -156,6 +99,13 @@ $items = viewitems();
       </TITLE>
    </HEAD>
 <BODY>
+	<div>
+      <span style="float:right">here</span><?php echo $users[1]; ?><br/>
+      blah<br/>
+      blah blah<br/>
+      blah<br/>
+      <span style="float:right">and here</span>lorem ipsums<br/>
+    </div>
    <H1>WhyBuy</H1>
 	<table id="t01">
 		<tr>
