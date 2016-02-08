@@ -252,8 +252,7 @@
 	</a>
 	<?php foreach ($users as $user): ?>
 	
-		<p>User:<?php if($user[user_name]==$_SESSION['user']){echo $users[user_name];} ?></p>
-		<p>Email:<?php if($user[user_name]==$_SESSION['user']){echo $users[email];} ?></p>
+		<p>User:<?php echo $_SESSION['user'];} ?></p>
 	<?php endforeach; ?>
 </BODY>
 </ARTICLE>
