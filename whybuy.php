@@ -247,12 +247,10 @@
 	   <!-- above here is the tabs setup -->
 			
 	
-   <a href="index.html">
+	<a href="index.html">
 		<h3>Home</h3>
 	</a>
-	<?php foreach ($users as $user): ?>
-	
-		<p>User:<?php echo $_SESSION['user']; ?></p>
-	<?php endforeach; ?>
+	<p>User:<?php echo $_SESSION['user']; ?></p>
+
 </BODY>
 </ARTICLE>
