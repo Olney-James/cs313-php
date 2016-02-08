@@ -53,8 +53,7 @@ $users = viewusers();
 	   <style>
 			section {
 			  position: relative;
-			  width: 50%;
-			  border: 1px solid;
+			  width: 100%;
 			}
 			body {
 				background-color: #d0e4fe;
