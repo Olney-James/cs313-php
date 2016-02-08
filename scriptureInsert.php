@@ -63,7 +63,7 @@ function test() {
 			<input type="text" name="chapter" size="1" maxlength="3">
 			Verse: 
 			<input type="text" name="book" size="1" maxlength="3"><br>
-			Content:
+			Content:<br>
 			<textarea rows="4" cols="100" ></textarea>
 			<br>
 			<label>Select Topic</label></br>
