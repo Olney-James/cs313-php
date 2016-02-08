@@ -25,7 +25,7 @@
 	function viewitems() {
 		global $test;
 		$query = 'SELECT * FROM item
-		ORDER BY item_id';
+		ORDER BY item_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$items = $statement->fetchAll();
@@ -53,7 +53,7 @@
 		global $test;
 		$query = 'SELECT * FROM item
 		WHERE genre = "GAME"
-		ORDER BY item_id';
+		ORDER BY item_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$games = $statement->fetchAll();
@@ -67,7 +67,7 @@
 		global $test;
 		$query = 'SELECT * FROM item
 		WHERE genre = "GADGET"
-		ORDER BY item_id';
+		ORDER BY item_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$gadgets = $statement->fetchAll();
@@ -80,7 +80,7 @@
 	function viewusers() {
 		global $test;
 		$query = 'SELECT * FROM user_name
-		ORDER BY user_id';
+		ORDER BY item_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$users = $statement->fetchAll();
