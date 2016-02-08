@@ -1,35 +1,34 @@
 <?php
 	function test() {
-	
-	$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	$database = 'retail_site';
-	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	$dsn = 'mysql:host='.$server.';dbname='.$database;
+		$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
+		$database = 'retail_site';
+		$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+		$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+		$dsn = 'mysql:host='.$server.';dbname='.$database;
 
-	try{
-		$g1db = new PDO($dsn, $username, $password);
-		return $g1db;
-		
-	}
-	catch (PDOException $ex){
-		echo 'Error!:' . $ex->getMessage();
-		die();
-	} 
+		try{
+			$g1db = new PDO($dsn, $username, $password);
+			return $g1db;
+			
+		}
+		catch (PDOException $ex){
+			echo 'Error!:' . $ex->getMessage();
+			die();
+		} 
 		
 	}
 		
 	$test = test();
 	
 	function viewitems() {
-	global $test;
-	$query = 'SELECT * FROM item
-	ORDER BY item_id';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$items = $statement->fetchAll();
-	$statement->closeCursor();
-	return $items;
+		global $test;
+		$query = 'SELECT * FROM item
+		ORDER BY item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$items = $statement->fetchAll();
+		$statement->closeCursor();
+		return $items;
 	}
 
 	$items = viewitems();
@@ -77,17 +76,17 @@
 	$gadgets = viewgadgets();
 	
 	function viewusers() {
-	global $test;
-	$query = 'SELECT * FROM user_name
-	ORDER BY user_id';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$users = $statement->fetchAll();
-	$statement->closeCursor();
-	return $users;
-}
+		global $test;
+		$query = 'SELECT * FROM user_name
+		ORDER BY user_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$users = $statement->fetchAll();
+		$statement->closeCursor();
+		return $users;
+	}
 
-$users = viewusers();
+	$users = viewusers();
 	
 ?>
 <ARTICLE>
@@ -106,6 +105,14 @@ $users = viewusers();
 				color: red;
 				text-align: center;
 				font-family: "Magneto"
+			}
+			
+			h3 {
+				text-align: center;
+			}
+			
+			p {
+				text-align: center;
 			}
 			
 			div.user {
@@ -240,6 +247,7 @@ $users = viewusers();
 	
    <a href="index.html">
 		<h3>Home</h3>
+		<p>User:<?php echo $users[1]; ?></p>
 	</a>
 </BODY>
 </ARTICLE>
