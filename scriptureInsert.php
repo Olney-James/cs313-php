@@ -41,12 +41,14 @@ function test() {
 	</HEAD>
 	<BODY>
 		<H1>Scripture Insert</H1>
-		<label>Select Topic</label>
-		<select class="form-control" name="topic" >
-			<?php foreach ($topics as $topic): ?>
-				<option value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?></option>
-			<?php endforeach; ?>
-		</select>
-		<input type="submit" value="Send" class="btn btn-default">
+		<form action="ScripturesDB.php" method="post">
+			<label>Select Topic</label>
+			<select class="form-control" name="topic" >
+				<?php foreach ($topics as $topic): ?>
+					<option value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?></option>
+				<?php endforeach; ?>
+			</select>
+			<input type="submit" value="Send" class="btn btn-default">
+		</form>
 	</BODY>
 </article>
