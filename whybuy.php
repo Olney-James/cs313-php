@@ -80,7 +80,6 @@
 	function viewusers() {
 		global $test;
 		$query = 'SELECT * FROM user_name
-		WHERE user_name=$_SESSION[\'user\']
 		ORDER BY user_id';
 		$statement = $test->prepare($query);
 		$statement->execute();
@@ -252,8 +251,9 @@
 		<h3>Home</h3>
 	</a>
 	<?php foreach ($users as $user): ?>
-		<p>User:<?php echo $users[user_name]; ?></p>
-		<p>Email:<?php echo $users[email]; ?></p>
+	
+		<p>User:<?php if $user[user_name]=$_SESSION['user']{echo $users[user_name];} ?></p>
+		<p>Email:<?php if $user[user_name]=$_SESSION['user']{echo $users[email];} ?></p>
 	<?php endforeach; ?>
 </BODY>
 </ARTICLE>
