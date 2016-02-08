@@ -17,6 +17,19 @@ function test() {
 	}
 		
 	$test = test();
+	
+	function viewtopics() {
+		global $test;
+		$query = 'SELECT * FROM topics
+		ORDER BY topic ASC';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$topics = $statement->fetchAll();
+		$statement->closeCursor();
+		return $topics;
+	}
+
+	$users = viewtopics();
 ?>
 <article>
 	<HEAD>
@@ -28,5 +41,12 @@ function test() {
 	</HEAD>
 	<BODY>
 		<H1>Scripture Insert</H1>
+		<label>Select Topic</label>
+		<select class="form-control" name="topic" >
+			<?php foreach ($topics as $topic): ?>
+				<option value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?></option>
+			<?php endforeach; ?>
+		</select>
+		<input type="submit" value="Send" class="btn btn-default">
 	</BODY>
 </article>
