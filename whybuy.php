@@ -106,7 +106,8 @@
 			h1 {
 				color: red;
 				text-align: center;
-				font-family: "Magneto"
+				font-family: "Magneto";
+				font-size: 50;
 			}
 			
 			h3 {
