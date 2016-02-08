@@ -33,6 +33,20 @@
 }
 
 $items = viewitems();
+
+function viewbooks() {
+	global $test;
+	$query = 'SELECT * FROM item
+	WHERE genre = "BOOK"
+	ORDER BY item_id';
+	$statement = $test->prepare($query);
+	$statement->execute();
+	$books = $statement->fetchAll();
+	$statement->closeCursor();
+	return $books;
+}
+
+$books = viewbooks();
 	
 	function viewusers() {
 	global $test;
@@ -136,7 +150,22 @@ $users = viewusers();
 			</div>
 			<div id="menu1" class="tab-pane fade">
 			  <h3>Books</h3>
-			  <p>Only books will be listed here.</p>
+			  <table id="t01">
+						<tr>
+							<th>Item</th>
+							<th>Price</th>		
+							<th>Genre</th>
+							<th>Image</th>
+						  </tr>
+						<?php foreach ($books as $book): ?>
+							<tr>
+								<td><?php echo $book["item_name"]; ?></td>
+								<td>$<?php echo $book["price"]; ?></td>
+								<td><?php echo $book["genre"]; ?></td>
+								<td><?php echo $book["image_link"]; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
 			</div>
 			<div id="menu2" class="tab-pane fade">
 			  <h3>Games</h3>
