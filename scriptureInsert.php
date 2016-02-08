@@ -59,8 +59,12 @@ function test() {
 					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
 			</select><br>
+			Chapter: 
+			<input type="text" name="chapter" size="1" maxlength="3">
+			Verse: 
+			<input type="text" name="book" size="1" maxlength="3"><br>
 			Content:
-			<input type="text" name="Content">
+			<textarea rows="4" cols="100" ></textarea>
 			<br>
 			<label>Select Topic</label></br>
 
