@@ -34,6 +34,20 @@
 
 	$items = viewitems();
 
+	function viewbooks() {
+		global $test;
+		$query = 'SELECT * FROM item
+		WHERE genre = "BOOK"
+		ORDER BY item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$books = $statement->fetchAll();
+		$statement->closeCursor();
+		return $books;
+	}
+
+	$books = viewbooks();
+	
 	function viewgames() {
 		global $test;
 		$query = 'SELECT * FROM item
