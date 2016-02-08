@@ -51,16 +51,11 @@ $users = viewusers();
 <ARTICLE>
    <HEAD>
 	   <style>
-			section {
-			  position: relative;
-			  width: 100%;
-			}
 			body {
 				background-color: #d0e4fe;
 			}
 
 			h1 {
-				display: inline;
 				color: red;
 				text-align: center;
 				font-family: "Magneto"
@@ -102,7 +97,7 @@ $users = viewusers();
       </TITLE>
    </HEAD>
 <BODY>
-	<section>
+
 	   <H1>WhyBuy</H1>
 		<table id="t01">
 			<tr>
@@ -120,14 +115,6 @@ $users = viewusers();
 				</tr>
 			<?php endforeach; ?>
 		</table>	
-	</section>
-	<div class='user'>
-
-		print("user: ");
-		print("\r\n");
-		print("email: ");
-	
-	</div>
 	
    <a href="index.html">
 		<h3>Home</h3>
