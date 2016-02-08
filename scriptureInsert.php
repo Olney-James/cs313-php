@@ -52,22 +52,21 @@ function test() {
 	<BODY>
 		<H1>Scripture Insert</H1>
 		<form action="ScripturesDB.php" method="post">
-			<label>Select Topic</label>
-
-				<?php foreach ($topics as $topic): ?>
-					<input type="checkbox" name="topic" value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?><br>
-				<?php endforeach; ?>
-
 			<label>Select Book</label>
 			<select class="form-control" name="book" >
 				<option value="all">All</option>
 				<?php foreach ($books as $book): ?>
 					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
-			</select>
-			Content:<br>
+			</select><br>
+			Content:
 			<input type="text" name="Content">
 			<br>
+			<label>Select Topic</label></br>
+
+				<?php foreach ($topics as $topic): ?>
+					<input type="checkbox" name="topic" value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?><br>
+				<?php endforeach; ?>
 			<input type="submit" value="Send" class="btn btn-default">
 		</form>
 	</BODY>
