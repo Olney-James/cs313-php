@@ -30,23 +30,37 @@
 	$items = $statement->fetchAll();
 	$statement->closeCursor();
 	return $items;
-}
+	}
 
-$items = viewitems();
+	$items = viewitems();
 
-function viewbooks() {
-	global $test;
-	$query = 'SELECT * FROM item
-	WHERE genre = "BOOK"
-	ORDER BY item_id';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$books = $statement->fetchAll();
-	$statement->closeCursor();
-	return $books;
-}
+	function viewgames() {
+		global $test;
+		$query = 'SELECT * FROM item
+		WHERE genre = "GAME"
+		ORDER BY item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$games = $statement->fetchAll();
+		$statement->closeCursor();
+		return $games;
+	}
 
-$books = viewbooks();
+	$games = viewgames();
+	
+	function viewgadgets() {
+		global $test;
+		$query = 'SELECT * FROM item
+		WHERE genre = "GADGET"
+		ORDER BY item_id';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$gadgets = $statement->fetchAll();
+		$statement->closeCursor();
+		return $gadgets;
+	}
+
+	$gadgets = viewgadgets();
 	
 	function viewusers() {
 	global $test;
@@ -168,12 +182,42 @@ $users = viewusers();
 					</table>
 			</div>
 			<div id="menu2" class="tab-pane fade">
-			  <h3>Games</h3>
-			  <p>Only Games will be listed here</p>
+				<h3>Games</h3>
+				<table id="t01">
+						<tr>
+							<th>Item</th>
+							<th>Price</th>		
+							<th>Genre</th>
+							<th>Image</th>
+						  </tr>
+						<?php foreach ($games as $game): ?>
+							<tr>
+								<td><?php echo $game["item_name"]; ?></td>
+								<td>$<?php echo $game["price"]; ?></td>
+								<td><?php echo $game["genre"]; ?></td>
+								<td><?php echo $game["image_link"]; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 			  <h3>Gadgets</h3>
-			  <p>Only gadgets will be listed here.</p>
+			  <table id="t01">
+						<tr>
+							<th>Item</th>
+							<th>Price</th>		
+							<th>Genre</th>
+							<th>Image</th>
+						  </tr>
+						<?php foreach ($gadgets as $gadget): ?>
+							<tr>
+								<td><?php echo $gadget["item_name"]; ?></td>
+								<td>$<?php echo $gadget["price"]; ?></td>
+								<td><?php echo $gadget["genre"]; ?></td>
+								<td><?php echo $gadget["image_link"]; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
 			</div>
 		  </div>
 		</div>
