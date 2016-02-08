@@ -165,9 +165,9 @@ $items = viewitems();
 		  </tr>
 		<?php foreach ($items as $item): ?>
 			<tr>
-				<th><?php echo $item["item_name"]; ?></th>
-				<th>$<?php echo $item["price"]; ?></th>
-				<th><?php echo $item["genre"]; ?></th>
+				<td><?php echo $item["item_name"]; ?></td>
+				<td>$<?php echo $item["price"]; ?></td>
+				<td><?php echo $item["genre"]; ?></td>
 			</tr>
 		<?php endforeach; ?>
 	</table>	
