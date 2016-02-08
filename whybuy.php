@@ -100,7 +100,7 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	   <style>
 			body {
-				background-color: #d0e4fe;
+				background-color: #FFF8DC;
 			}
 
 			h1 {
@@ -137,10 +137,10 @@
 				text-align: left;
 			}
 			table#t01 tr:nth-child(even) {
-				background-color: #eee;
+				background-color: #FFF8DC;
 			}
 			table#t01 tr:nth-child(odd) {
-			   background-color:#fff;
+			   background-color:	#FFFFF0;
 			}
 			table#t01 th	{
 				background-color: red;
