@@ -9,7 +9,6 @@
 
 	try{
 		$g1db = new PDO($dsn, $username, $password);
-		echo 'db has connected';
 		return $g1db;
 		
 	}
@@ -99,13 +98,7 @@ $users = viewusers();
       </TITLE>
    </HEAD>
 <BODY>
-	<div>
-      <span style="float:right">here</span><?php echo $users[1]; ?><br/>
-      blah<br/>
-      blah blah<br/>
-      blah<br/>
-      <span style="float:right">and here</span>lorem ipsums<br/>
-    </div>
+	
    <H1>WhyBuy</H1>
 	<table id="t01">
 		<tr>
@@ -122,13 +115,13 @@ $users = viewusers();
 		<?php endforeach; ?>
 	</table>	
 		
-<!--	<div class='user'>
+	<div class='user'>
 
-			print("user: ");
-			print("\r\n");
-			print("email: ");
+		print("user: ");
+		print("\r\n");
+		print("email: ");
 	
-	</div> -->
+	</div>
 	
    <a href="index.html">
 		<h3>Home</h3>
