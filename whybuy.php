@@ -91,7 +91,7 @@
 	
 	$items = writeItemsToArray();
 ?>
-<HTML>
+<ARTICLE>
    <HEAD>
 	   <style>
 			body {
@@ -142,4 +142,4 @@
 		<h3>Home</h3>
 	</a>
 </BODY>
-</HTML>
+</ARTICLE>
