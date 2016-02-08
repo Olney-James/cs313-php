@@ -53,11 +53,11 @@ function test() {
 		<H1>Scripture Insert</H1>
 		<form action="ScripturesDB.php" method="post">
 			<label>Select Topic</label>
-			<select class="form-control" name="topic" >
+
 				<?php foreach ($topics as $topic): ?>
-					<option value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?></option>
+					<input type="checkbox" name="topic" value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?><br>
 				<?php endforeach; ?>
-			</select>
+
 			<label>Select Book</label>
 			<select class="form-control" name="book" >
 				<option value="all">All</option>
@@ -65,6 +65,9 @@ function test() {
 					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
 			</select>
+			Content:<br>
+			<input type="text" name="Content">
+			<br>
 			<input type="submit" value="Send" class="btn btn-default">
 		</form>
 	</BODY>
