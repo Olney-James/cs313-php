@@ -247,7 +247,7 @@
 	
    <a href="index.html">
 		<h3>Home</h3>
-		<p>User:<?php echo $users[1]; ?></p>
+		<p>User:<?php echo $users[user_name][1]; ?></p>
 	</a>
 </BODY>
 </ARTICLE>
