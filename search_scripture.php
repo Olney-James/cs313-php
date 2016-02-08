@@ -22,7 +22,7 @@ $test = test();
 
 function viewBooks() {
 	global $test;
-	$query = 'SELECT * FROM Books
+	$query = 'SELECT * FROM books
 	ORDER BY book_id';
 	$statement = $test->prepare($query);
 	$statement->execute();

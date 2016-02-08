@@ -22,11 +22,11 @@ $test = test();
 
 function viewScriptures() {
 	global $test;
-	$query = 'SELECT Scriptures.chapter, Scriptures.verse, Scriptures.content, Books.name
-	FROM Scriptures
-	INNER JOIN Books
-	ON Scriptures.book_id = Books.book_id
-	ORDER BY Books.name';
+	$query = 'SELECT scriptures.chapter, scriptures.verse, scriptures.content, books.name
+	FROM scriptures
+	INNER JOIN books
+	ON scriptures.book_id = books.book_id
+	ORDER BY books.name';
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$scriptures = $statement->fetchAll();
@@ -39,12 +39,12 @@ function viewScripturesByBook($book_id = "-1") {
 	if ($book_id == "-1") {
 		$scriptures = viewScriptures();
 	} else {
-		$query = 'SELECT Scriptures.chapter, Scriptures.verse, Scriptures.content, Books.name
-		FROM Scriptures
-		INNER JOIN Books
-		ON Scriptures.book_id = Books.book_id
-		WHERE Scriptures.book_id = :book_id
-		ORDER BY Books.name';
+		$query = 'SELECT scriptures.chapter, scriptures.verse, scriptures.content, books.name
+		FROM scriptures
+		INNER JOIN books
+		ON scriptures.book_id = books.book_id
+		WHERE scriptures.book_id = :book_id
+		ORDER BY books.name';
 		$statement = $test->prepare($query);
 		$statement->bindValue(":book_id", $book_id);
 		$statement->execute();
