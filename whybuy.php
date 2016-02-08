@@ -140,6 +140,8 @@ $items = viewitems();
 			<li>
 				<strong>
 					<?php echo $item["item_name"]; ?>&nbsp;
+					<?php echo $item["price"]; ?>;
+					<?php echo $item["genre"]; ?>;
 				</strong>
 			</li>
 		<?php endforeach; ?>
