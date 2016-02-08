@@ -50,6 +50,11 @@ $users = viewusers();
 ?>
 <ARTICLE>
    <HEAD>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	   <style>
 			body {
 				background-color: #d0e4fe;
@@ -99,6 +104,36 @@ $users = viewusers();
 <BODY>
 
 	   <H1>WhyBuy</H1>
+	   <!-- below here is the tabs -->
+	   <div class="container">
+		  <h2>Items</h2>
+		  <ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">All</a></li>
+			<li><a data-toggle="tab" href="#menu1">Books</a></li>
+			<li><a data-toggle="tab" href="#menu2">Games</a></li>
+			<li><a data-toggle="tab" href="#menu3">Gadgets</a></li>
+		  </ul>
+
+		  <div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+			  <h3>All Items</h3>
+			  <p>All items will be listed here</p>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+			  <h3>Books</h3>
+			  <p>Only books will be listed here.</p>
+			</div>
+			<div id="menu2" class="tab-pane fade">
+			  <h3>Games</h3>
+			  <p>Only Games will be listed here</p>
+			</div>
+			<div id="menu3" class="tab-pane fade">
+			  <h3>Gadgets</h3>
+			  <p>Only gadgets will be listed here.</p>
+			</div>
+		  </div>
+		</div>
+	   <!-- above here is the tabs setup -->
 		<table id="t01">
 			<tr>
 				<th>Item</th>
