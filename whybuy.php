@@ -139,7 +139,7 @@ $items = viewitems();
 	<?php foreach ($items as $item): ?>
 			<li>
 				<strong>
-					<?php echo $item; ?>&nbsp;
+					<?php echo $item["item_name"]; ?>&nbsp;
 				</strong>
 			</li>
 		<?php endforeach; ?>
