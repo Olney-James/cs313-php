@@ -39,7 +39,7 @@
 		global $test;
 		$query = 'SELECT * FROM item
 		WHERE genre = "BOOK"
-		ORDER BY item_id';
+		ORDER BY item_name ASC';
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$books = $statement->fetchAll();
