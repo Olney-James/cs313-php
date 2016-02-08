@@ -51,11 +51,17 @@ $users = viewusers();
 <ARTICLE>
    <HEAD>
 	   <style>
+			section {
+			  position: relative;
+			  width: 50%;
+			  border: 1px solid;
+			}
 			body {
 				background-color: #d0e4fe;
 			}
 
 			h1 {
+				display: inline;
 				color: red;
 				text-align: center;
 				font-family: "Magneto"
@@ -97,25 +103,25 @@ $users = viewusers();
       </TITLE>
    </HEAD>
 <BODY>
-	
-   <H1>WhyBuy</H1>
-	<table id="t01">
-		<tr>
-			<th>Item</th>
-			<th>Price</th>		
-			<th>Genre</th>
-			<th>Image</th>
-		  </tr>
-		<?php foreach ($items as $item): ?>
+	<section>
+	   <H1>WhyBuy</H1>
+		<table id="t01">
 			<tr>
-				<td><?php echo $item["item_name"]; ?></td>
-				<td>$<?php echo $item["price"]; ?></td>
-				<td><?php echo $item["genre"]; ?></td>
-				<td><img src="<?php $item['image_link'] ?>" alt="image" ></td>
-			</tr>
-		<?php endforeach; ?>
-	</table>	
-		
+				<th>Item</th>
+				<th>Price</th>		
+				<th>Genre</th>
+				<th>Image</th>
+			  </tr>
+			<?php foreach ($items as $item): ?>
+				<tr>
+					<td><?php echo $item["item_name"]; ?></td>
+					<td>$<?php echo $item["price"]; ?></td>
+					<td><?php echo $item["genre"]; ?></td>
+					<td><?php $item["image_link"] ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>	
+	</section>
 	<div class='user'>
 
 		print("user: ");
