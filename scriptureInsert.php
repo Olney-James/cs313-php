@@ -29,7 +29,7 @@ function test() {
 		return $topics;
 	}
 
-	$users = viewtopics();
+	$topics = viewtopics();
 ?>
 <article>
 	<HEAD>
