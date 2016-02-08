@@ -117,7 +117,22 @@ $users = viewusers();
 		  <div class="tab-content">
 			<div id="home" class="tab-pane fade in active">
 			  <h3>All Items</h3>
-			  <p>All items will be listed here</p>
+				  <table id="t01">
+						<tr>
+							<th>Item</th>
+							<th>Price</th>		
+							<th>Genre</th>
+							<th>Image</th>
+						  </tr>
+						<?php foreach ($items as $item): ?>
+							<tr>
+								<td><?php echo $item["item_name"]; ?></td>
+								<td>$<?php echo $item["price"]; ?></td>
+								<td><?php echo $item["genre"]; ?></td>
+								<td><?php echo $item["image_link"]; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
 			</div>
 			<div id="menu1" class="tab-pane fade">
 			  <h3>Books</h3>
@@ -134,22 +149,7 @@ $users = viewusers();
 		  </div>
 		</div>
 	   <!-- above here is the tabs setup -->
-		<table id="t01">
-			<tr>
-				<th>Item</th>
-				<th>Price</th>		
-				<th>Genre</th>
-				<th>Image</th>
-			  </tr>
-			<?php foreach ($items as $item): ?>
-				<tr>
-					<td><?php echo $item["item_name"]; ?></td>
-					<td>$<?php echo $item["price"]; ?></td>
-					<td><?php echo $item["genre"]; ?></td>
-					<td><?php echo $item["image_link"]; ?></td>
-				</tr>
-			<?php endforeach; ?>
-		</table>	
+			
 	
    <a href="index.html">
 		<h3>Home</h3>
