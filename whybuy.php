@@ -252,7 +252,7 @@
 	</a>
 	<?php foreach ($users as $user): ?>
 	
-		<p>User:<?php echo $_SESSION['user'];} ?></p>
+		<p>User:<?php echo $_SESSION['user']; ?></p>
 	<?php endforeach; ?>
 </BODY>
 </ARTICLE>
