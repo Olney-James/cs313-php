@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	$_SESSION['user']='test';
 	function test() {
 		$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
 		$database = 'retail_site';
@@ -78,6 +80,7 @@
 	function viewusers() {
 		global $test;
 		$query = 'SELECT * FROM user_name
+		WHERE user_name=$_SESSION['user']
 		ORDER BY user_id';
 		$statement = $test->prepare($query);
 		$statement->execute();
@@ -247,7 +250,10 @@
 	
    <a href="index.html">
 		<h3>Home</h3>
-		<p>User:<?php echo $users[user_name][1]; ?></p>
 	</a>
+	<?php foreach ($users as $user): ?>
+		<p>User:<?php echo $users[user_name]; ?></p>
+		<p>Email:<?php echo $users[email]; ?></p>
+	<?php endforeach; ?>
 </BODY>
 </ARTICLE>
