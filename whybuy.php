@@ -22,7 +22,20 @@
 		
 	$test = test();
 	
-	function getItemName(int $item_id) {
+	function viewitems() {
+	global $test;
+	$query = 'SELECT * FROM item
+	ORDER BY item_id';
+	$statement = $test->prepare($query);
+	$statement->execute();
+	$items = $statement->fetchAll();
+	$statement->closeCursor();
+	return $items;
+}
+
+$items = viewitems();
+	
+	/*function getItemName(int $item_id) {
 	global $test;
 	$query = 'SELECT item_name
 	FROM item
@@ -91,6 +104,7 @@
 	}
 	
 	$items = writeItemsToArray();
+	*/
 ?>
 <ARTICLE>
    <HEAD>
