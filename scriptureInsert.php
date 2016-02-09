@@ -53,7 +53,7 @@ function test() {
 		<H1>Scripture Insert</H1>
 		<form action="sendscripture.php" method="post">
 			Book:
-			<input type="text" name="book" size="1" maxlength="3">
+			<input type="text" name="book" size="50" maxlength="100">
 			Chapter: 
 			<input type="text" name="chapter" size="1" maxlength="3">
 			Verse: 
@@ -64,7 +64,7 @@ function test() {
 			<label>Select Topic</label></br>
 
 				<?php foreach ($topics as $topic): ?>
-					<input type="checkbox" name="topic" value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?><br>
+					<input type="checkbox" name="topic[]" value="<?php echo $topic["topic_id"]; ?>"><?php echo $topic["topic_name"]; ?><br>
 				<?php endforeach; ?>
 			<input type="submit" value="Send" class="btn btn-default">
 		</form>
