@@ -51,7 +51,7 @@ function test() {
 	</HEAD>
 	<BODY>
 		<H1>Scripture Insert</H1>
-		<form action="ScripturesDB.php" method="post">
+		<form action="sendscripture.php" method="post">
 			<label>Select Book</label>
 			<select class="form-control" name="book" >
 				<option value="all">All</option>
