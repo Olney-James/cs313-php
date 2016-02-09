@@ -26,9 +26,10 @@
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING);/*array*/
 	
 	echo $book." ".$chapter." ".$verse." ".$content." ";
-	foreach ($topics as $topic):
-		echo $topic;
-	end foreach;
+	foreach ($topics as $topic):{
+		echo $topic . " ";
+	}
+
 	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse,) VALUES(:book, :chapter, :verse)');
