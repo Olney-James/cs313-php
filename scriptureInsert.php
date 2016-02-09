@@ -52,16 +52,12 @@ function test() {
 	<BODY>
 		<H1>Scripture Insert</H1>
 		<form action="sendscripture.php" method="post">
-			<label>Select Book</label>
-			<select class="form-control" name="book" >
-				<?php foreach ($books as $book): ?>
-					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
-				<?php endforeach; ?>
-			</select><br>
+			Book:
+			<input type="text" name="book" size="1" maxlength="3">
 			Chapter: 
 			<input type="text" name="chapter" size="1" maxlength="3">
 			Verse: 
-			<input type="text" name="book" size="1" maxlength="3"><br>
+			<input type="text" name="verse" size="1" maxlength="3"><br>
 			Content:<br>
 			<textarea rows="4" cols="100" ></textarea>
 			<br>

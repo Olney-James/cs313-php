@@ -19,15 +19,20 @@
 	}	
 	$test = test();
 	
-	$book_id='';
-	$chapter='';
-	$verse='';
-	$content='';
-	$topics='';/*array*/
+	$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
+	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
+	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_STRING);
+	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
+	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING);/*array*/
+	
+	echo $book." ".$chapter." ".$verse." ".$content." ";
+	foreach ($topics as $topic):
+		echo $topic;
+	end foreach;
 	/*
 	function insertScripture(){
-		$stmt = $pdo->prepare('INSERT INTO scriptures(book_id, chapter, verse,) VALUES(:book_id, :chapter, :verse)');
-		$stmt->execute(array(':book_id' => $book_id, ':chapter' => $chapter, ':verse' => $verse ));
+		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse,) VALUES(:book, :chapter, :verse)');
+		$stmt->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse ));
 		$scripture_id = $pdo->lastInsertId();
 		$stmt->closeCursor();
 		return $scripture_id;
