@@ -54,7 +54,6 @@ function test() {
 		<form action="sendscripture.php" method="post">
 			<label>Select Book</label>
 			<select class="form-control" name="book" >
-				<option value="all">All</option>
 				<?php foreach ($books as $book): ?>
 					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
