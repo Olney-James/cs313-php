@@ -26,7 +26,7 @@
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING);/*array*/
 	
 	echo $book." ".$chapter." ".$verse." ".$content." ";
-	foreach ($topics as $topic):{
+	foreach ($topics as $topic){
 		echo $topic . " ";
 	}
 
