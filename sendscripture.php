@@ -26,33 +26,21 @@
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
-	/*trying Silvere's stuff
 	
-function viewTopicNames() {
-	global $test;
-	$query = 'SELECT name
-	FROM topics;';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$topic_names = $statement->fetchAll();
-	$statement->closeCursor();
-	return $topic_names;
-}
- my stuff 	*/
 	foreach ($topics as $topic){
 		echo $topic;
 	}
 
-	/*
+	
 	function insertScripture(){
-		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse,) VALUES(:book, :chapter, :verse)');
-		$stmt->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse ));
+		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
+		$stmt->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ":content" => $content ));
 		$scripture_id = $pdo->lastInsertId();
 		$stmt->closeCursor();
 		return $scripture_id;
 	}
 	$scripture_id = insertScripture();
-	
+	/*
 	function insertTopic() {
 		foreach ($topics as $topic):
 			$stmt = $pdo->prepare('INSERT INTO link(scripture_id, topic_id) VALUES(:scripture_id, :topicId)';
