@@ -53,11 +53,11 @@
 	
 	
 	
-	/* my stuff 
+	/* my stuff 	*/
 	foreach ($topics as $topic){
 		echo $topic . " ";
 	}
-	*/
+
 	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse,) VALUES(:book, :chapter, :verse)');
