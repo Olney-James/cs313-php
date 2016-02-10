@@ -27,6 +27,18 @@
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
 	/*trying Silvere's stuff*/
+	function getTopicByName($name) {
+	global $test;
+	$query = '	SELECT * FROM Topics
+				WHERE name = :name';
+	$statement = $test->prepare($query);
+	$statement->bindValue(":name", $name);
+	$statement->execute();
+	$topic = $statement->fetch();
+	$statement->closeCursor();
+	return $topic;
+}
+	
 	foreach ($topics as $topic_name) {
 			$topic = getTopicByName($topic_name);
 			while ($topic === NULL) {
