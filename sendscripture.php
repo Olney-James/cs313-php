@@ -26,7 +26,7 @@
 	$topics=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
-	/*trying Silvere's stuff*/
+	/*trying Silvere's stuff
 	
 function viewTopicNames() {
 	global $test;
@@ -38,8 +38,7 @@ function viewTopicNames() {
 	$statement->closeCursor();
 	return $topic_names;
 }
-	/* my stuff 	*/
-	$x=1;
+ my stuff 	*/
 	foreach ($topics as $topic_name){
 		echo $topic[$topic_name];
 	}
