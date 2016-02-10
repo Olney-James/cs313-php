@@ -40,7 +40,7 @@ function viewTopicNames() {
 }
  my stuff 	*/
 	foreach ($topics as $topic_name){
-		echo $topic[$topic_name];
+		echo $topic_name;
 	}
 
 	/*
