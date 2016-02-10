@@ -23,39 +23,25 @@
 	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
 	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_STRING);
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	$topics=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
+	$topic_names=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
 	/*trying Silvere's stuff*/
-	function getTopicByName($name) {
+	
+function viewTopicNames() {
 	global $test;
-	$query = '	SELECT * FROM Topics
-				WHERE name = :name';
+	$query = 'SELECT name
+	FROM topics;';
 	$statement = $test->prepare($query);
-	$statement->bindValue(":name", $name);
 	$statement->execute();
-	$topic = $statement->fetch();
+	$topic_names = $statement->fetchAll();
 	$statement->closeCursor();
-	return $topic;
+	return $topic_names;
 }
-	
-	foreach ($topics as $topic_name) {
-			$topic = getTopicByName($topic_name);
-			while ($topic === NULL) {
-				$result = insertTopic($book);
-				if ($result != 1) {
-					$topic = getTopicByName($book);
-				}
-			}
-			$topics[] = $topic;
-		}
-	
-	
-	
-	
 	/* my stuff 	*/
-	foreach ($topics as $topic){
-		echo $topic . " ";
+	$x=1;
+	foreach ($topic_names as $topic_name){
+		echo $topic[$topic_name];
 	}
 
 	/*
