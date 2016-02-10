@@ -26,10 +26,26 @@
 	$topics=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
+	/*trying Silvere's stuff*/
+	foreach ($topics as $topic_name) {
+			$topic = getTopicByName($topic_name);
+			while ($topic === NULL) {
+				$result = insertTopic($book);
+				if ($result != 1) {
+					$topic = getTopicByName($book);
+				}
+			}
+			$topics[] = $topic;
+		}
+	
+	
+	
+	
+	/* my stuff 
 	foreach ($topics as $topic){
 		echo $topic . " ";
 	}
-
+	*/
 	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse,) VALUES(:book, :chapter, :verse)');
