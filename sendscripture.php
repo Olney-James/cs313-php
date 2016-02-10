@@ -21,7 +21,7 @@
 	
 	$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
 	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
-	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_STRING);
+	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
@@ -31,7 +31,7 @@
 		echo $topic;
 	}
 
-	
+	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
 		$stmt->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ":content" => $content ));
@@ -40,7 +40,7 @@
 		return $scripture_id;
 	}
 	$scripture_id = insertScripture();
-	/*
+	
 	function insertTopic() {
 		foreach ($topics as $topic):
 			$stmt = $pdo->prepare('INSERT INTO link(scripture_id, topic_id) VALUES(:scripture_id, :topicId)';
