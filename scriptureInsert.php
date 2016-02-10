@@ -59,7 +59,7 @@ function test() {
 			Verse: 
 			<input type="text" name="verse" size="1" maxlength="3"><br>
 			Content:<br>
-			<textarea rows="4" cols="100" ></textarea>
+			<textarea name='content' rows="4" cols="100" ></textarea>
 			<br>
 			<label>Select Topic</label></br>
 
