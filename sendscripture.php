@@ -23,7 +23,7 @@
 	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
 	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_STRING);
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	$topic_names=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
+	$topics=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
 	/*trying Silvere's stuff*/
@@ -40,7 +40,7 @@ function viewTopicNames() {
 }
 	/* my stuff 	*/
 	$x=1;
-	foreach ($topic_names as $topic_name){
+	foreach ($topics as $topic_name){
 		echo $topic[$topic_name];
 	}
 
