@@ -25,7 +25,7 @@
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
 	$topics=filter_input(INPUT_POST, "topic", FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
-	echo " ".$book." ".$chapter." ".$verse." ".$content." ";
+	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	/*trying Silvere's stuff
 	
 function viewTopicNames() {
@@ -39,8 +39,8 @@ function viewTopicNames() {
 	return $topic_names;
 }
  my stuff 	*/
-	foreach ($topics as $topic_name){
-		echo $topic_name;
+	foreach ($topics as $topic){
+		echo $topic;
 	}
 
 	/*
