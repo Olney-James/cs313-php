@@ -36,7 +36,7 @@ function viewScriptures() {
 
 function findTopicByScripture($scripture){
 	global $test;
-	$query = 'SELECT * FROM link
+	$query = 'SELECT topic_id FROM link
 	WHERE scripture_id = $scripture';
 	$statement = $test->prepare($query);
 	$statement->execute();
@@ -98,6 +98,7 @@ if (!isset($book) || $book == "all"){
 				 <strong>
 					<?php 
 					$topics = findTopicByScripture($scripture['scripture_id']);
+					echo $topics;
 					foreach ($topics as $topic){
 						echo findTopicByScripture($topic);
 					}
