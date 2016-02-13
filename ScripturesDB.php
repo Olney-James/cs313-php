@@ -40,9 +40,20 @@ function findTopicByScripture($scripture){
 	WHERE scripture_id = $scripture';
 	$statement = $test->prepare($query);
 	$statement->execute();
-	$books = $statement->fetchAll();
+	$topics = $statement->fetchAll();
 	$statement->closeCursor();
-	return $books;
+	return $topics;
+}
+
+function findTopicByTopic_id($topic_id){
+	global $test;
+	$query = 'SELECT * FROM topics
+	WHERE topic_id = $topic_id';
+	$statement = $test->prepare($query);
+	$statement->execute();
+	$topics = $statement->fetchAll();
+	$statement->closeCursor();
+	return $topics;
 }
 
 function viewScripturesByBook($book_id = "-1") {
@@ -88,11 +99,20 @@ if (!isset($book) || $book == "all"){
 					<?php 
 					$topics = findTopicByScripture($scripture['scripture_id']);
 					foreach ($topics as $topic){
-						echo findTopicByScripture($topic);
+						echo findTopicByTopic_id(findTopicByScripture($topic['topic_id']));
 					}
 					?>
 				 </strong>
 			</li>
 		<?php endforeach; ?>
 	</ul>
+</article>
+<article>
+	<BODY>
+		<center>
+			<a href="search_scripture.php"><h3>View Scriptures</h3></a>
+			<a href="scriptureInsert.php"><h3>Add a scripture</h3></a>
+			<a href="index.html"><h3>Home</h3></a>
+		</center>
+	</BODY>
 </article>

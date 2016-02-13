@@ -74,8 +74,6 @@ insertScripture();
 ?>
 <article>
 	<HEAD>
-		<style>
-		</style>
 		<TITLE>
 			Scripture Sent
 		</TITLE>

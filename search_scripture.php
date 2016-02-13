@@ -1,3 +1,5 @@
+<article>
+</article>
 <?php
 function test() {
 	
@@ -32,6 +34,8 @@ function viewBooks() {
 }
 
 $books = viewBooks();
+
+
 ?>
 <article>
 	<center>
