@@ -37,7 +37,7 @@
 	
 	function viewScriptures() {
 	global $test;
-	$query = 'SELECT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
+	$query = 'SELECT DISTINCT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
 	FROM scriptures
 	INNER JOIN books
 	ON scriptures.book_id = books.book_id
@@ -178,7 +178,7 @@ insertScripture();
 				  <table id="t01">
 						<tr>
 							<th>Book</th>
-							<th>Chapter:Verse</th>
+							<th>Ch:Vs</th>
 							<th>Content</th>
 							<th>Topics</th>
 						  </tr>
