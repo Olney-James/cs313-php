@@ -27,9 +27,7 @@
 	
 //echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	
-	foreach ($topics as $topic){
-		echo $topic;
-	}
+	
 
 	function insertScripture($scripture, $topics) {
 	global $test;
@@ -39,7 +37,10 @@
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
-	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
+	echo " ".$book." ".$chapter." ".$verse." ".$content;
+	foreach ($topics as $topic){
+		echo $topic['topic_id'];
+	}
 	// Begin a new Transaction -->
 	$test->beginTransaction();
 	
