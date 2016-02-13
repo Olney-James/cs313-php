@@ -68,7 +68,7 @@
 							(:scripture_id, :topic_id)';
 		$statement = $test->prepare($query);
 		$statement->bindValue(":scripture_id", $scripture_id);
-		$statement->bindValue(":topic_id", $topic);
+		$statement->bindValue(":topic_id", $topic["topic_id"]);
 		$statement->execute();
 		$statement->closeCursor();
 	}
