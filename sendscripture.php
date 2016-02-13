@@ -70,13 +70,25 @@
 	echo "scripture has been posted";
 }
 insertScripture();
- <a href="search_scripture.php">
-		<h3>View Scriptures</h3>
-	</a>
-	 <a href="scriptureInsert.php">
-		<h3>Add a scripture</h3>
-	</a>
- <a href="index.html">
-		<h3>Home</h3>
-	</a>
+ 
 ?>
+<article>
+	<HEAD>
+		<style>
+		</style>
+		<TITLE>
+			Scripture Sent
+		</TITLE>
+	</HEAD>
+	<BODY>
+		<a href="search_scripture.php">
+			<h3>View Scriptures</h3>
+		</a>
+		 <a href="scriptureInsert.php">
+			<h3>Add a scripture</h3>
+		</a>
+		 <a href="index.html">
+				<h3>Home</h3>
+		</a>
+	</BODY>
+</article>
