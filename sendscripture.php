@@ -9,7 +9,7 @@
 
 		try{
 			$g1db = new PDO($dsn, $username, $password);
-			echo "database connected";
+			//echo "database connected";
 			return $g1db;
 		}
 		catch (PDOException $ex){
@@ -18,16 +18,6 @@
 		} 		
 	}	
 	$test = test();
-	
-	//$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
-	//$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
-	//$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
-	//$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	//$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
-	
-//echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
-	
-	
 
 	function insertScripture($scripture, $topics) {
 	global $test;
@@ -37,11 +27,11 @@
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
-	echo " ".$book." ".$chapter." ".$verse." ".$content;
-	foreach ($topics as $topic){
-		echo $topic['topic_id'];
-		echo $topic['token_name'];
-	}
+//	echo " ".$book." ".$chapter." ".$verse." ".$content;
+//	foreach ($topics as $topic){
+//		echo $topic['topic_id'];
+//		echo $topic['token_name'];
+//	}
 	// Begin a new Transaction -->
 	$test->beginTransaction();
 	
@@ -77,22 +67,16 @@
 
 	// End and send the Transaction to the database -->
 	$test->commit();
+	echo "scripture has been posted";
 }
 insertScripture();
-	/*
-	function insertScripture(){
-		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
-		$stmt->execute(array(':book' => $book, ':chapter' => $chapter, ':verse' => $verse, ":content" => $content ));
-		$scripture_id = $pdo->lastInsertId();
-		$stmt->closeCursor();
-		return $scripture_id;
-	}
-	$scripture_id = insertScripture();
-	
-	function insertTopic() {
-		foreach ($topics as $topic):
-			$stmt = $pdo->prepare('INSERT INTO link(scripture_id, topic_id) VALUES(:scripture_id, :topicId)';
-			$stmt->execute(array(':scripture_id' => $scripture_id, ':topicId' => $topic));
-		end foreach;
-	} */
+ <a href="search_scripture.php">
+		<h3>View Scriptures</h3>
+	</a>
+	 <a href="scriptureInsert.php">
+		<h3>Add a scripture</h3>
+	</a>
+ <a href="index.html">
+		<h3>Home</h3>
+	</a>
 ?>
