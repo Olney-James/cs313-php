@@ -44,10 +44,10 @@
 	$test->beginTransaction();
 	
 	// First insert the scripture -->
-	$query = "	INSERT INTO scriptures
+	$query = '	INSERT INTO scriptures
 						(book_id, chapter, verse, content)
 					VALUES
-						(':book_id', ':chapter', ':verse', ':content')";
+						(:book_id, :chapter, :verse, :content)';
 	$statement = $test->prepare($query);
 	$statement->bindValue(":book_id", $book);
 	$statement->bindValue(":chapter", $chapter);
