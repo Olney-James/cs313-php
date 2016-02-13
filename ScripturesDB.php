@@ -104,7 +104,7 @@ if (!isset($book) || $book == "all"){
 					$topics = findTopicByScripture($scripture_temp);
 					print_r($topics);
 					foreach($scripture_temp as $topic){
-						echo $topic['token_name'];
+						echo $topic['topic_name'];
 					} 
 					?>
 				 </strong>
