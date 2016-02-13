@@ -67,7 +67,7 @@ function test() {
 			<label>Select Topic</label></br>
 
 				<?php foreach ($topics as $topic): ?>
-					<input type="checkbox" name="topic[]" value="<?php echo $topic['topic_name']; ?>"><?php echo $topic["topic_name"]; ?><br>
+					<input type="checkbox" name="topic[]" value="<?php echo $topic['topic_id']; ?>"><?php echo $topic["topic_name"]; ?><br>
 				<?php endforeach; ?>
 			<input type="submit" value="Send" class="btn btn-default">
 		</form>
