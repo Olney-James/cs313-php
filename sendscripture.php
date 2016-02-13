@@ -101,6 +101,62 @@ insertScripture();
 ?>
 <article>
 	<HEAD>
+	<HEAD>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	   <style>
+			body {
+				background-color: #FFF8DC;
+			}
+
+			h1 {
+				color: red;
+				text-align: center;
+				font-family: "Magneto";
+				font-size: 50;
+			}
+			
+			h3 {
+				text-align: center;
+			}
+			
+			p {
+				text-align: center;
+			}
+			
+			div.user {
+				height: 80px;
+				width: 160px;
+				box-shadow: 5px 5px 5px black;
+				float: right;
+			}
+			
+			<!--below style table detail-->
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 1px solid red;
+				border-collapse: collapse;
+			}
+			th, td {
+				padding: 5px;
+				text-align: left;
+			}
+			table#t01 tr:nth-child(even) {
+				background-color: #FFF8DC;
+			}
+			table#t01 tr:nth-child(odd) {
+			   background-color:	#FFFFF0;
+			}
+			table#t01 th	{
+				background-color: red;
+				color: white;
+			}
+		</style>
 		<TITLE>
 			Scripture Sent
 		</TITLE>
@@ -111,9 +167,9 @@ insertScripture();
 		  <h2>Items</h2>
 		  <ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#home">All</a></li>
-			<li><a data-toggle="tab" href="#menu1">Books</a></li>
-			<li><a data-toggle="tab" href="#menu2">Games</a></li>
-			<li><a data-toggle="tab" href="#menu3">Gadgets</a></li>
+			<li><a data-toggle="tab" href="#menu1">Charity</a></li>
+			<li><a data-toggle="tab" href="#menu2">Faith</a></li>
+			<li><a data-toggle="tab" href="#menu3">Sacrifice</a></li>
 		  </ul>
 
 		  <div class="tab-content">
