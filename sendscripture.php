@@ -192,7 +192,8 @@ insertScripture();
 								<td><?php echo $scripture["content"]; ?></td>							
 						<?php endforeach; ?>
 								<td><?php 
-								$topics=findTopicByScripture($scripture["scripture_id"]);
+								$scripture_temp = $scripture['scripture_id'];
+								$topics=findTopicByScripture($scripture_temp);
 								foreach($topics as $topic){
 									echo $topic["topic_name"] . " "; 
 								}
