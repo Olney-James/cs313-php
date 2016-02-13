@@ -70,6 +70,7 @@
 	// End and send the Transaction to the database -->
 	$test->commit();
 }
+insertScripture();
 	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
