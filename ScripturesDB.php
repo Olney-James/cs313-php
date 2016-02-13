@@ -22,7 +22,7 @@ $test = test();
 
 function viewScriptures() {
 	global $test;
-	$query = 'SELECT scriptures.chapter, scriptures.verse, scriptures.content, books.name
+	$query = 'SELECT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
 	FROM scriptures
 	INNER JOIN books
 	ON scriptures.book_id = books.book_id
@@ -61,7 +61,7 @@ function viewScripturesByBook($book_id = "-1") {
 	if ($book_id == "-1") {
 		$scriptures = viewScriptures();
 	} else {
-		$query = 'SELECT scriptures.chapter, scriptures.verse, scriptures.content, books.name
+		$query = 'SELECT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
 		FROM scriptures
 		INNER JOIN books
 		ON scriptures.book_id = books.book_id
