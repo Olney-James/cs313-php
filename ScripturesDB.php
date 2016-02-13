@@ -97,9 +97,11 @@ if (!isset($book) || $book == "all"){
 				 - <?php echo $scripture['content']; ?>
 				 <strong>
 					<?php 
-					echo $scripture['scripture_id'];
+					//echo $scripture['scripture_id'];
 					$topics = findTopicByScripture($scripture['scripture_id']);
-					echo $topics['topic_id'];
+					foreach($topics as $topic){
+						echo $topic['topic_id'];
+					} 
 					?>
 				 </strong>
 			</li>
