@@ -99,7 +99,7 @@ if (!isset($book) || $book == "all"){
 					<?php 
 					echo $scripture['scripture_id'];
 					$topics = findTopicByScripture($scripture['scripture_id']);
-					echo topics['topic_id'];
+					echo $topics['topic_id'];
 					?>
 				 </strong>
 			</li>
