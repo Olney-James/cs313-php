@@ -35,7 +35,7 @@
 	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
 	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
+	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY);/*array*/
 	
 	echo " ".$book." ".$chapter." ".$verse." ".$content;
 	foreach ($topics as $topic){
