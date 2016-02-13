@@ -88,7 +88,7 @@ if (!isset($book) || $book == "all"){
 					<?php 
 					$topics = findTopicByScripture($scripture['scripture_id']);
 					foreach ($topics as $topic){
-						echo findTopicByScripture($topic['topic_name']);
+						echo findTopicByScripture($topic);
 					}
 					?>
 				 </strong>
