@@ -58,7 +58,7 @@
 
 	// Store the ID of the recently inserted scripture -->
 	$scripture_id = $test->lastInsertId();
-/*
+
 	// Fill in the link table with $topics -->
 	$count = 0;
 	foreach ($topics as $topic) {
@@ -68,11 +68,11 @@
 							(:scripture_id, :topic_id)';
 		$statement = $test->prepare($query);
 		$statement->bindValue(":scripture_id", $scripture_id);
-		$statement->bindValue(":topic_id", $topic["topic_id"]);
+		$statement->bindValue(":topic_id", $topic);
 		$statement->execute();
 		$statement->closeCursor();
 	}
-*/
+
 	// End and send the Transaction to the database -->
 	$test->commit();
 }
