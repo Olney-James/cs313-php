@@ -47,17 +47,6 @@ function findTopicByScripture($scripture){
 	return $topics;
 }
 
-function findTopicByTopic_id($topic_id){
-	global $test;
-	$query = 'SELECT topic_name FROM topics
-	WHERE topic_id = $topic_id';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$topics = $statement->fetchAll();
-	$statement->closeCursor();
-	return $topics;
-}
-
 function viewScripturesByBook($book_id = "-1") {
 	global $test;
 	if ($book_id == "-1") {
@@ -99,12 +88,12 @@ if (!isset($book) || $book == "all"){
 				 - <?php echo $scripture['content']; ?>
 				 <strong>
 					<?php 
-					echo $scripture['scripture_id'];
+					//echo $scripture['scripture_id'];
 					$scripture_temp = $scripture['scripture_id'];
 					$topics = findTopicByScripture($scripture_temp);
-					print_r($topics);
+					//print_r($topics);
 					foreach($topics as $topic){
-						echo $topic['topic_name'];
+						echo $topic['topic_name'] . " ";
 					} 
 					?>
 				 </strong>
