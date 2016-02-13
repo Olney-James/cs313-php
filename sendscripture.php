@@ -164,7 +164,7 @@ insertScripture();
 	<BODY>
 	<!-- below here is the tabs set up -->
 		<div class="container">
-		  <h2>Items</h2>
+		  <h2>Scriptures</h2>
 		  <ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#home">All</a></li>
 			<li><a data-toggle="tab" href="#menu1">Charity</a></li>
@@ -187,7 +187,7 @@ insertScripture();
 						?>
 							<tr>
 								
-								<td><?php echo $scripture["book"]; ?></td>
+								<td><?php echo $scripture["name"]; ?></td>
 								<td><?php echo $scripture["chapter"]; ?>:<?php echo $scripture["verse"]; ?></td>
 								<td><?php echo $scripture["content"]; ?></td>							
 						<?php endforeach; ?>
