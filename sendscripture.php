@@ -30,8 +30,28 @@
 	foreach ($topics as $topic){
 		echo $topic;
 	}
-	$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
-	echo $stmt;
+
+	function insertScripture($scripture, $topics) {
+	global $test;
+
+	// Begin a new Transaction -->
+	$test->beginTransaction();
+	
+	// First insert the scripture -->
+	$query = '	INSERT INTO scriptures
+						(book_id, chapter, verse, content)
+					VALUES
+						(:book_id, :chapter, :verse, :content)';
+	$statement = $test->prepare($query);
+	$statement->bindValue(":book_id", $book);
+	$statement->bindValue(":chapter", $chapter);
+	$statement->bindValue(":verse", $verse);
+	$statement->bindValue(":content", $content);
+	$statement->execute();
+	$statement->closeCursor();
+
+	// Store the ID of the recently inserted scripture -->
+	$scripture_id = $test->lastInsertId();
 	/*
 	function insertScripture(){
 		$stmt = $pdo->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
