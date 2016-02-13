@@ -34,15 +34,19 @@ function viewBooks() {
 $books = viewBooks();
 ?>
 <article>
-	<h1>Search Scripture</h1>
-	<form action="ScripturesDB.php" method="post">
-		<label>Select Book</label>
-		<select class="form-control" name="book" >
-			<option value="all">All</option>
-			<?php foreach ($books as $book): ?>
-				<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
-			<?php endforeach; ?>
-		</select>
-		<input type="submit" value="Send" class="btn btn-default">
-	</form>
+	<center>
+		<h1>Search Scripture</h1>
+		<form action="ScripturesDB.php" method="post">
+			<label>Select Book</label>
+			<select class="form-control" name="book" >
+				<option value="all">All</option>
+				<?php foreach ($books as $book): ?>
+					<option value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
+				<?php endforeach; ?>
+			</select>
+			<input type="submit" value="Send" class="btn btn-default">
+		</form>
+		<a href="scriptureInsert.php"><h3>Add a scripture</h3></a>
+		<a href="index.html"><h3>Home</h3></a>
+	</center>
 </article>
