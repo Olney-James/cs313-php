@@ -40,6 +40,7 @@
 	echo " ".$book." ".$chapter." ".$verse." ".$content;
 	foreach ($topics as $topic){
 		echo $topic['topic_id'];
+		echo $topic['token_name'];
 	}
 	// Begin a new Transaction -->
 	$test->beginTransaction();
