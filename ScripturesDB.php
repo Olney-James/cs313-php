@@ -39,7 +39,7 @@ function findTopicByScripture($scripture){
 	$query = 'SELECT link.topic_id, topics.topic_name FROM link
 	INNER JOIN topics
 	ON link.topic_id = topics.topic_id
-	WHERE link.scripture_id = $scripture';
+	WHERE link.scripture_id ='. $scripture;
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$topics = $statement->fetchAll();
@@ -99,7 +99,7 @@ if (!isset($book) || $book == "all"){
 				 - <?php echo $scripture['content']; ?>
 				 <strong>
 					<?php 
-					echo $scripture['topic_name'];
+					echo $scripture['scripture_id'];
 					$scripture_temp = $scripture['scripture_id'];
 					$topics = findTopicByScripture($scripture_temp);
 					print_r($topics);
