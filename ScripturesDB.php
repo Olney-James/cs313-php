@@ -97,6 +97,7 @@ if (!isset($book) || $book == "all"){
 				 - <?php echo $scripture['content']; ?>
 				 <strong>
 					<?php 
+					echo $scripture['scripture_id'];
 					$topics = findTopicByScripture($scripture['scripture_id']);
 					print_r($topics);
 					?>
