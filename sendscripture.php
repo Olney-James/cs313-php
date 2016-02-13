@@ -25,7 +25,7 @@
 	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
 	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
-	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
+//echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	
 	foreach ($topics as $topic){
 		echo $topic;
@@ -33,7 +33,7 @@
 
 	function insertScripture($scripture, $topics) {
 	global $test;
-
+	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	// Begin a new Transaction -->
 	$test->beginTransaction();
 	
