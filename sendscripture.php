@@ -19,11 +19,11 @@
 	}	
 	$test = test();
 	
-	$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
-	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
-	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
-	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
+	//$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
+	//$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
+	//$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
+	//$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
+	//$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
 	
 //echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	
@@ -33,6 +33,12 @@
 
 	function insertScripture($scripture, $topics) {
 	global $test;
+	$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
+	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
+	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
+	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
+	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
+	
 	echo " ".$book." ".$chapter." ".$verse." ".$content." ".$topics;
 	// Begin a new Transaction -->
 	$test->beginTransaction();
