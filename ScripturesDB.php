@@ -34,6 +34,17 @@ function viewScriptures() {
 	return $scriptures;
 }
 
+function findTopicByScripture($scripture){
+	global $test;
+	$query = 'SELECT * FROM link
+	WHERE scripture_id = $scripture';
+	$statement = $test->prepare($query);
+	$statement->execute();
+	$books = $statement->fetchAll();
+	$statement->closeCursor();
+	return $books;
+}
+
 function viewScripturesByBook($book_id = "-1") {
 	global $test;
 	if ($book_id == "-1") {
@@ -73,6 +84,9 @@ if (!isset($book) || $book == "all"){
 					<?php echo $scripture['verse']; ?>
 				</strong>
 				 - <?php echo $scripture['content']; ?>
+				 <strong>
+					<?php echo findTopicByScripture($scripture['scripture_id']); ?>
+				 </strong>
 			</li>
 		<?php endforeach; ?>
 	</ul>
