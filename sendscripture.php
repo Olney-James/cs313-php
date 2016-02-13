@@ -189,15 +189,16 @@ insertScripture();
 								
 								<td><?php echo $scripture["name"]; ?></td>
 								<td><?php echo $scripture["chapter"]; ?>:<?php echo $scripture["verse"]; ?></td>
-								<td><?php echo $scripture["content"]; ?></td>							
-						<?php endforeach; ?>
+								<td><?php echo $scripture["content"]; ?></td>	
 								<td><?php 
-								$scripture_temp = $scripture['scripture_id'];
-								$topics=findTopicByScripture($scripture_temp);
-								foreach($topics as $topic){
-									echo $topic["topic_name"] . " "; 
-								}
+										$scripture_temp = $scripture['scripture_id'];
+										$topics=findTopicByScripture($scripture_temp);
+										foreach($topics as $topic){
+											echo $topic["topic_name"] . " "; 
+										}
 									?></td>
+						<?php endforeach; ?>
+								
 							</tr>
 					</table>
 			</div>
