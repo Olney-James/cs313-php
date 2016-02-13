@@ -36,8 +36,10 @@ function viewScriptures() {
 
 function findTopicByScripture($scripture){
 	global $test;
-	$query = 'SELECT topic_id FROM link
-	WHERE scripture_id = $scripture';
+	$query = 'SELECT link.topic_id, topics.topic_name FROM link
+	INNER JOIN topics
+	ON link.topic_id = topics.topic_id
+	WHERE link.scripture_id = $scripture';
 	$statement = $test->prepare($query);
 	$statement->execute();
 	$topics = $statement->fetchAll();
