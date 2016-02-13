@@ -47,7 +47,7 @@ function findTopicByScripture($scripture){
 
 function findTopicByTopic_id($topic_id){
 	global $test;
-	$query = 'SELECT * FROM topics
+	$query = 'SELECT topic_name FROM topics
 	WHERE topic_id = $topic_id';
 	$statement = $test->prepare($query);
 	$statement->execute();
