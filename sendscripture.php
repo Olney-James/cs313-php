@@ -249,10 +249,61 @@ insertScripture();
 			</div>
 			<div id="menu2" class="tab-pane fade">
 				<h3>Faith</h3>
+				<table id="t01">
+						<tr>
+							<th>Book</th>
+							<th>Ch:Vs</th>
+							<th>Content</th>
+							<th>Topics</th>
+						  </tr>
+						<?php 	$scriptures=viewScripturesByTopic("1"); 
+								foreach ($scriptures as $scripture): 
+						?>
+							<tr>
+								
+								<td><?php echo $scripture["name"]; ?></td>
+								<td><?php echo $scripture["chapter"]; ?>:<?php echo $scripture["verse"]; ?></td>
+								<td><?php echo $scripture["content"]; ?></td>	
+								<td><?php 
+										$scripture_temp = $scripture['scripture_id'];
+										$topics=findTopicByScripture($scripture_temp);
+										foreach($topics as $topic){
+											echo $topic["topic_name"] . " "; 
+										}
+									?></td>
+						<?php endforeach; ?>
+								
+							</tr>
+					</table>
 			</div>
 			<div id="menu3" class="tab-pane fade">
 			  <h3>Sacrifice</h3>
-			  
+			  <table id="t01">
+						<tr>
+							<th>Book</th>
+							<th>Ch:Vs</th>
+							<th>Content</th>
+							<th>Topics</th>
+						  </tr>
+						<?php 	$scriptures=viewScripturesByTopic("2"); 
+								foreach ($scriptures as $scripture): 
+						?>
+							<tr>
+								
+								<td><?php echo $scripture["name"]; ?></td>
+								<td><?php echo $scripture["chapter"]; ?>:<?php echo $scripture["verse"]; ?></td>
+								<td><?php echo $scripture["content"]; ?></td>	
+								<td><?php 
+										$scripture_temp = $scripture['scripture_id'];
+										$topics=findTopicByScripture($scripture_temp);
+										foreach($topics as $topic){
+											echo $topic["topic_name"] . " "; 
+										}
+									?></td>
+						<?php endforeach; ?>
+								
+							</tr>
+					</table>
 			</div>
 		  </div>
 		</div>
