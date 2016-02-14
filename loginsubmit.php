@@ -27,11 +27,9 @@
 		$statement->closeCursor();
 		return $user_name;
 	}
+	
 	function userExists($user){
-		$isUser = selectUsers($user); 
-		foreach($isUser as $user){
-			echo $user['user_name'];
-		}
+		$isUser = selectUsers($user);
 		
 		if ($isUser['user_name'] == NULL) {
 			return FALSE;
@@ -47,6 +45,8 @@
 	session_start();
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+	$username = userExists($user);
+	print_r($username);
 	if(userExists($user) == TRUE){
 		echo "user exists";
 		//if(verifyPassword() == TRUE){
