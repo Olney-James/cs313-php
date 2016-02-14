@@ -25,13 +25,13 @@
 		$statement->execute();
 		$user_name = $statement->fetchAll();
 		$statement->closeCursor();
-		return $user_name;
+		return $user_name['user_name'];
 	}
 
 	function userExists($username){
 		$isUser = selectUsers($username);
 		
-		if ($isUser['user_name'] == NULL) {
+		if ($isUser == NULL) {
 			return FALSE;
 		}
 		else{
