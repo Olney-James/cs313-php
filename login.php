@@ -39,14 +39,16 @@
    </HEAD>
 <BODY>
 	   <H1>WhyBuy</H1>
-		<H1>Login</H1>
-		<form action="whybuy.php" method="post">
-			User: 
-			<input type="text" name="chapter" size="1" maxlength="3"><br>
-			Password: 
-			<input type="text" name="verse" size="1" maxlength="3"><br>
-			<input type="submit" value="Send" class="btn btn-default">
-		</form>	
+		<H2>Login</H2>
+		<center>
+			<form action="whybuy.php" method="post">
+				User: 
+				<input type="text" name="chapter" size="10" maxlength="20"><br>
+				Password: 
+				<input type="text" name="verse" size="10" maxlength="20"><br>
+				<input type="submit" value="Send" class="btn btn-default">
+			</form>	
+		</center>
 	
 	<a href="index.html">
 		<h3>Home</h3>
