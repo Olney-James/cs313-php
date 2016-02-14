@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	$_SESSION['user']='test';
+	
 ?>
 <ARTICLE>
    <HEAD>
@@ -45,9 +45,11 @@
 	   <H1>WhyBuy</H1>
 		<H2>Login</H2>
 		<center>
-			<form action="whybuy.php" method="post">
-				<p>Username: <input type="text" name="chapter" size="10" maxlength="20"></p>
-				<p>Password: <input type="text" name="verse" size="10" maxlength="20"></p>
+			<form action="loginsubmit.php" method="post">
+				<p>Username: <input type="text" name="username" size="10" maxlength="20"></p>
+				
+				<p>Password: <input type="text" name="password" size="10" maxlength="20"></p>
+				
 				<br>
 				<input type="submit" value="Send" class="btn btn-default">
 			</form>	
