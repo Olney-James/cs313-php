@@ -1,0 +1,86 @@
+CREATE TABLE `item` (
+  `item_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(20) NOT NULL,
+  `price` decimal(6,2) NOT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `image_link` varchar(200) DEFAULT NULL,
+  `genre` varchar(20) NOT NULL,
+  PRIMARY KEY (`item_id`)
+) AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 
+;
+
+CREATE TABLE `user_name` (
+  `user_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `is_on_email_list` tinyint(1) NOT NULL,
+  `password` blob,
+  PRIMARY KEY (`user_id`)
+) AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+;
+
+CREATE TABLE `shopping_cart` (
+  `cart_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) NOT NULL,
+  `item_id` smallint(5) unsigned NOT NULL,
+  `user_id` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`cart_id`),
+  KEY `item_id` (`item_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`
+item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `shopping_cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_nam
+e` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 
+;
+
+INSERT INTO item(item_name, price, url, image_link, genre) VALUES('Canasta Caliente', 8.29, "<iframe style='width:120px;height:240px;' marginwidth='0' marginheight='0' scrolling='no' frameborder='0' src='//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=why021-20&marketplace=amazon&region=US&placement=B001G55SCS&asins=B001G55SCS&linkId=YWU3COIXGV3WBAE6&show_border=true&link_opens_in_new_window=true'>
+</iframe>", "<a rel='nofollow' href='http://www.amazon.com/gp/product/B001G55SCS/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001G55SCS&linkCode=as2&tag=why021-20&linkId=Z6T2G65FHJS5BMNC'><img border='0' src='http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B001G55SCS&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=why021-20' ></a><img src='http://ir-na.amazon-adsystem.com/e/ir?t=why021-20&l=as2&o=1&a=B001G55SCS' width='1' height='1' border='0' alt='' style='border:none !important; margin:0px !important;' />
+", 'GAME');
+
+INSERT INTO item(item_name, price, url, genre) VALUES('Kindle Unlimited Free Trial', 0, "<div class='alignleft'>  
+<script type='text/javascript'>
+ amzn_assoc_ad_type = 'banner';
+ amzn_assoc_tracking_id = 'why021-20';
+ amzn_assoc_marketplace = 'amazon';
+ amzn_assoc_region = 'US';
+ amzn_assoc_placement = 'assoc_banner_placement_default';
+ amzn_assoc_linkid = 'ZXDZQCWXNCAGI63O';
+ amzn_assoc_campaigns = 'kuft';
+ amzn_assoc_banner_type = 'category';
+ amzn_assoc_isresponsive = 'true';
+</script>
+<script src='//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1'></script>
+</div>
+", 'BOOK');
+
+INSERT INTO item(item_name, price, url, image_link, genre) VALUES('ViewSonic PJD5155 SVGA DLP Projector, 3200 Lumens, HDMI, BLACK', 299.99, "<iframe style='width:120px;height:240px;' marginwidth='0' marginheight='0' scrolling='no' frameborder='0' src='//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=why021-20&marketplace=amazon&region=US&placement=B00SZ4G4YE&asins=B00SZ4G4YE&linkId=GIC7MOOADMEISWRM&show_border=true&link_opens_in_new_window=true'>
+</iframe>", "<a rel='nofollow' href='http://www.amazon.com/gp/product/B00SZ4G4YE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00SZ4G4YE&linkCode=as2&tag=why021-20&linkId=W6BLY54VIU7XGKBP'><img border='0' src='http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00SZ4G4YE&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=why021-20' ></a><img src='http://ir-na.amazon-adsystem.com/e/ir?t=why021-20&l=as2&o=1&a=B00SZ4G4YE' width='1' height='1' border='0' alt='' style='border:none !important; margin:0px !important;' />
+", 'GADGET');
+
+INSERT INTO shopping_cart(quantity, item_id, user_id) VALUES(2, 1, 3);
+INSERT INTO shopping_cart(quantity, item_id, user_id) VALUES(1, 1, 2);
+INSERT INTO shopping_cart(quantity, item_it, user_id) VALUES(1, 3, 3);
+INSERT INTO shopping_cart(quantity, item_id, user_id) VALUES(1, 2, 2);
+INSERT INTO item(item_name, price, url, genre) VALUES(, 1, 3);
+INSERT INTO item(item_name, price, genre) VALUES("Shadows of Self (A Mistborn Novel)", 16.65, "BOOK");
+
+UPDATE item 
+SET image_link="<a rel=\"nofollow\" href=\"http://www.amazon.com/gp/product/B001G55SCS/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001G55SCS&linkCode=as2&tag=why021-20&linkId=S5XDF62HX2TF56SO\"><img border=\"0\" src=\"http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B001G55SCS&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=why021-20\" ></a><img src=\"http://ir-na.amazon-adsystem.com/e/ir?t=why021-20&l=as2&o=1&a=B001G55SCS\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" />"
+WHERE item_name ="Canasta Caliente";
+
+UPDATE item 
+SET url="<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=why021-20&marketplace=amazon&region=US&placement=B001G55SCS&asins=B001G55SCS&linkId=6H2VANEEZRERQS4J&show_border=true&link_opens_in_new_window=true\">
+</iframe>
+"
+WHERE item_name ="Canasta Caliente";
+
+UPDATE item 
+SET url="<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=why021-20&marketplace=amazon&region=US&placement=B00SZ4G4YE&asins=B00SZ4G4YE&linkId=XJVIAHX4CS33GA5D&show_border=true&link_opens_in_new_window=true\">
+</iframe>
+"
+WHERE item_name ="ViewSonic PJD5155 SV";
+
+UPDATE item 
+SET image_link="<a rel=\"nofollow\" href=\"http://www.amazon.com/gp/product/B00SZ4G4YE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00SZ4G4YE&linkCode=as2&tag=why021-20&linkId=UIXXCV7RTZ5RLFDJ\"><img border=\"0\" src=\"http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00SZ4G4YE&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=why021-20\" ></a><img src=\"http://ir-na.amazon-adsystem.com/e/ir?t=why021-20&l=as2&o=1&a=B00SZ4G4YE\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" />"
+WHERE item_name ="ViewSonic PJD5155 SV";
