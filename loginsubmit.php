@@ -8,7 +8,7 @@
 
 		try{
 			$g1db = new PDO($dsn, $username, $password);
-			echo "database connected";
+			//echo "database connected";
 			return $g1db;
 		}
 		catch (PDOException $ex){
@@ -48,7 +48,7 @@
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 	$username = userExists($user);
 	echo $user;
-	echo $username;
+	echo selectUsers($user);
 	if(userExists($user) == TRUE){
 		echo "user exists";
 		//if(verifyPassword() == TRUE){
