@@ -1,4 +1,7 @@
-<?php ?>
+<?php 
+	session_start();
+	$_SESSION['user']='test';
+?>
 <ARTICLE>
    <HEAD>
 		
@@ -35,9 +38,15 @@
       </TITLE>
    </HEAD>
 <BODY>
-
 	   <H1>WhyBuy</H1>
-			
+		<H1>Login</H1>
+		<form action="whybuy.php" method="post">
+			User: 
+			<input type="text" name="chapter" size="1" maxlength="3"><br>
+			Password: 
+			<input type="text" name="verse" size="1" maxlength="3"><br>
+			<input type="submit" value="Send" class="btn btn-default">
+		</form>	
 	
 	<a href="index.html">
 		<h3>Home</h3>
