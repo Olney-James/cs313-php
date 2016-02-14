@@ -26,7 +26,7 @@
 		$statement->execute();
 		$user_name = $statement->fetchAll();
 		$statement->closeCursor();
-		return $user_name['user_name'];
+		return $user_name;
 	}
 
 	function userExists($username){
@@ -47,8 +47,11 @@
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 	$username = userExists($user);
-	echo $user;
-	echo selectUsers($user);
+	//echo $user;
+	$user_name = selectUsers($user);
+	foreach($user_name as $u){
+		echo $u['user_name'];
+	}
 	if(userExists($user) == TRUE){
 		echo "user exists";
 		//if(verifyPassword() == TRUE){
