@@ -8,7 +8,8 @@
 
 		try{
 			$g1db = new PDO($dsn, $username, $password);
-			return $g1db;	
+			return $g1db;
+			echo "database connected";
 		}
 		catch (PDOException $ex){
 			echo 'Error!:' . $ex->getMessage();
