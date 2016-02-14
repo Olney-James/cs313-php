@@ -30,7 +30,7 @@
 	function userExists($user){
 		$isUser = selectUsers($user); 
 		foreach($isUser as $user){
-			echo $user;
+			echo $user['user_name'];
 		}
 		
 		if ($isUser['user_name'] == NULL) {
