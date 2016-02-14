@@ -35,7 +35,7 @@
 	
 	function viewScripturesByTopic($topic) {
 		global $test;
-		$query = 'SELECT books.name, scriptures.chapter, scriptures.verse, scriptures.content, topics.topic_name
+		$query = 'SELECT scriptures.scripture_id, books.name, scriptures.chapter, scriptures.verse, scriptures.content, topics.topic_name
 			FROM scriptures
 			INNER JOIN link ON scriptures.scripture_id = link.scripture_id
 			INNER JOIN books ON scriptures.book_id = books.book_id
