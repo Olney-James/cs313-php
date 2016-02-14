@@ -19,34 +19,33 @@
 	}	
 	$test = test();
 
-	function insertScripture($scripture, $topics) {
-	global $test;
-	$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
-	$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
-	$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
-	$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
-	$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
-	
-//	echo " ".$book." ".$chapter." ".$verse." ".$content;
-//	foreach ($topics as $topic){
-//		echo $topic['topic_id'];
-//		echo $topic['token_name'];
-//	}
-	// Begin a new Transaction -->
-	$test->beginTransaction();
-	
 	function viewScriptures() {
-	global $test;
-	$query = 'SELECT DISTINCT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
-	FROM scriptures
-	INNER JOIN books
-	ON scriptures.book_id = books.book_id
-	ORDER BY books.name';
-	$statement = $test->prepare($query);
-	$statement->execute();
-	$scriptures = $statement->fetchAll();
-	$statement->closeCursor();
-	return $scriptures;
+		global $test;
+		$query = 'SELECT DISTINCT scriptures.scripture_id, scriptures.chapter, scriptures.verse, scriptures.content, books.name
+		FROM scriptures
+		INNER JOIN books
+		ON scriptures.book_id = books.book_id
+		ORDER BY books.name';
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$scriptures = $statement->fetchAll();
+		$statement->closeCursor();
+		return $scriptures;
+	}
+	
+	function viewScripturesByTopic($topic) {
+		global $test;
+		$query = 'SELECT books.name, scriptures.chapter, scriptures.verse, scriptures.content, topics.topic_name
+			FROM scriptures
+			INNER JOIN link ON scriptures.scripture_id = link.scripture_id
+			INNER JOIN books ON scriptures.book_id = books.book_id
+			INNER JOIN topics ON link.topic_id = topics.topic_id
+			WHERE link.topic_id =' . $topic;
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$scriptures = $statement->fetchAll();
+		$statement->closeCursor();
+		return $scriptures;
 	}
 
 	
@@ -62,34 +61,51 @@
 		$statement->closeCursor();
 		return $topics;
 	}
-	// First insert the scripture -->
-	$query = '	INSERT INTO scriptures
-						(book_id, chapter, verse, content)
-					VALUES
-						(:book_id, :chapter, :verse, :content)';
-	$statement = $test->prepare($query);
-	$statement->bindValue(":book_id", $book);
-	$statement->bindValue(":chapter", $chapter);
-	$statement->bindValue(":verse", $verse);
-	$statement->bindValue(":content", $content);
-	$statement->execute();
-	$statement->closeCursor();
-
-	// Store the ID of the recently inserted scripture -->
-	$scripture_id = $test->lastInsertId();
-
-	// Fill in the link table with $topics -->
-	$count = 0;
-	foreach ($topics as $topic) {
-		$query = '	INSERT INTO link
-							(scripture_id, topic_id)
+	function insertScripture($scripture, $topics) {
+		global $test;
+		$book=filter_input(INPUT_POST, "book", FILTER_SANITIZE_STRING);
+		$chapter=filter_input(INPUT_POST, "chapter", FILTER_SANITIZE_STRING);
+		$verse=filter_input(INPUT_POST, "verse", FILTER_SANITIZE_NUMBER_INT);
+		$content=filter_input(INPUT_POST, "content", FILTER_SANITIZE_STRING);
+		$topics=filter_input(INPUT_POST, "topic", FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);/*array*/
+		
+	//	echo " ".$book." ".$chapter." ".$verse." ".$content;
+	//	foreach ($topics as $topic){
+	//		echo $topic['topic_id'];
+	//		echo $topic['token_name'];
+	//	}
+		// Begin a new Transaction -->
+		$test->beginTransaction();
+		
+		
+		// First insert the scripture -->
+		$query = '	INSERT INTO scriptures
+							(book_id, chapter, verse, content)
 						VALUES
-							(:scripture_id, :topic_id)';
+							(:book_id, :chapter, :verse, :content)';
 		$statement = $test->prepare($query);
-		$statement->bindValue(":scripture_id", $scripture_id);
-		$statement->bindValue(":topic_id", $topic["topic_id"]);
+		$statement->bindValue(":book_id", $book);
+		$statement->bindValue(":chapter", $chapter);
+		$statement->bindValue(":verse", $verse);
+		$statement->bindValue(":content", $content);
 		$statement->execute();
 		$statement->closeCursor();
+
+		// Store the ID of the recently inserted scripture -->
+		$scripture_id = $test->lastInsertId();
+
+		// Fill in the link table with $topics -->
+		$count = 0;
+		foreach ($topics as $topic) {
+			$query = '	INSERT INTO link
+								(scripture_id, topic_id)
+							VALUES
+								(:scripture_id, :topic_id)';
+			$statement = $test->prepare($query);
+			$statement->bindValue(":scripture_id", $scripture_id);
+			$statement->bindValue(":topic_id", $topic["topic_id"]);
+			$statement->execute();
+			$statement->closeCursor();
 	}
 
 	// End and send the Transaction to the database -->
@@ -204,6 +220,32 @@ insertScripture();
 			</div>
 			<div id="menu1" class="tab-pane fade">
 			  <h3>Charity</h3>
+				  <table id="t01">
+						<tr>
+							<th>Book</th>
+							<th>Ch:Vs</th>
+							<th>Content</th>
+							<th>Topics</th>
+						  </tr>
+						<?php 	$scriptures=viewScripturesByTopic("3"); 
+								foreach ($scriptures as $scripture): 
+						?>
+							<tr>
+								
+								<td><?php echo $scripture["name"]; ?></td>
+								<td><?php echo $scripture["chapter"]; ?>:<?php echo $scripture["verse"]; ?></td>
+								<td><?php echo $scripture["content"]; ?></td>	
+								<td><?php 
+										$scripture_temp = $scripture['scripture_id'];
+										$topics=findTopicByScripture($scripture_temp);
+										foreach($topics as $topic){
+											echo $topic["topic_name"] . " "; 
+										}
+									?></td>
+						<?php endforeach; ?>
+								
+							</tr>
+					</table>
 			</div>
 			<div id="menu2" class="tab-pane fade">
 				<h3>Faith</h3>
