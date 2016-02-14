@@ -46,10 +46,10 @@
 		<H2>Login</H2>
 		<center>
 			<form action="whybuy.php" method="post">
-				<p>    User: </p>
-				<input type="text" name="chapter" size="10" maxlength="20"><br>
-				<p>Password: </p>
-				<input type="text" name="verse" size="10" maxlength="20"><br>
+				<p>    User: <input type="text" name="chapter" size="10" maxlength="20"></p>
+				<br>
+				<p>Password: <input type="text" name="verse" size="10" maxlength="20"></p>
+				<br>
 				<input type="submit" value="Send" class="btn btn-default">
 			</form>	
 		</center>
