@@ -29,6 +29,7 @@
 	}
 	function userExists($user){
 		$isUser = selectUsers($user); 
+		echo $isUser;
 		if ($isUser['user_name'] == NULL) {
 			return FALSE;
 		}
