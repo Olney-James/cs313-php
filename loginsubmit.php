@@ -28,8 +28,8 @@
 		return $user_name;
 	}
 
-	function userExists($user){
-		$isUser = selectUsers($user);
+	function userExists($username){
+		$isUser = selectUsers($username);
 		
 		if ($isUser['user_name'] == NULL) {
 			return FALSE;
@@ -47,7 +47,6 @@
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 	$username = userExists($user);
 	echo $user;
-	echo (selectUsers($user))['user_name'];
 	if(userExists($user) == TRUE){
 		echo "user exists";
 		//if(verifyPassword() == TRUE){
