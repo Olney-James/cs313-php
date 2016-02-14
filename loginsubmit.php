@@ -27,7 +27,7 @@
 		$statement->closeCursor();
 		return $user_name;
 	}
-		$test->commit();
+
 	function userExists($user){
 		$isUser = selectUsers($user);
 		
