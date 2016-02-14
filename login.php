@@ -46,9 +46,9 @@
 		<H2>Login</H2>
 		<center>
 			<form action="whybuy.php" method="post">
-				    User: 
+				<p>    User: </p>
 				<input type="text" name="chapter" size="10" maxlength="20"><br>
-				Password: 
+				<p>Password: </p>
 				<input type="text" name="verse" size="10" maxlength="20"><br>
 				<input type="submit" value="Send" class="btn btn-default">
 			</form>	
