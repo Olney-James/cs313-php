@@ -51,7 +51,7 @@
 	
 	function findTopicByScripture($scripture){
 		global $test;
-		$query = 'SELECT link.topic_id, topics.topic_name FROM link
+		$query = 'SELECT scriptures.scripture_id, link.topic_id, topics.topic_name FROM link
 		INNER JOIN topics
 		ON link.topic_id = topics.topic_id
 		WHERE link.scripture_id ='. $scripture;
