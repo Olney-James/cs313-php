@@ -57,7 +57,8 @@ function test() {
 				<?php foreach ($books as $book): ?>
 					<option name="book" value="<?php echo $book["book_id"]; ?>"><?php echo $book["name"]; ?></option>
 				<?php endforeach; ?>
-			<p>Chapter: </p>
+			</select>
+			Chapter: 
 			<input type="text" name="chapter" size="1" maxlength="3">
 			Verse: 
 			<input type="text" name="verse" size="1" maxlength="3"><br>
