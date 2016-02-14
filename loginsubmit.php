@@ -47,6 +47,7 @@
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 	$username = userExists($user);
 	echo $user;
+	echo $username;
 	if(userExists($user) == TRUE){
 		echo "user exists";
 		//if(verifyPassword() == TRUE){
