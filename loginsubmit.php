@@ -20,14 +20,14 @@
 	function selectUsers($user){
 		global $test;
 		$query = 'SELECT * FROM user_name
-			WHERE user_name = '. $user;
+			WHERE user_name='.$user;
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$user_name = $statement->fetchAll();
 		$statement->closeCursor();
 		return $user_name;
 	}
-	
+		$test->commit();
 	function userExists($user){
 		$isUser = selectUsers($user);
 		
