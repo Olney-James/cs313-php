@@ -17,6 +17,10 @@
 				font-size: 50;
 			}
 			
+			h2 {
+				text-align: center;
+			}
+			
 			h3 {
 				text-align: center;
 			}
@@ -42,7 +46,7 @@
 		<H2>Login</H2>
 		<center>
 			<form action="whybuy.php" method="post">
-				User: 
+				    User: 
 				<input type="text" name="chapter" size="10" maxlength="20"><br>
 				Password: 
 				<input type="text" name="verse" size="10" maxlength="20"><br>
