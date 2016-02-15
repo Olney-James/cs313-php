@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION['user']='test'
+	$_SESSION['user']='test';
 	/* if($_SESSION['user'] and $_SESSION['password'] are valid,
 			continue
 		else
