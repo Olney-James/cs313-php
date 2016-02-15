@@ -26,6 +26,7 @@
 		$statement->execute();
 		$user_name = $statement->fetch();
 		$statement->closeCursor();
+		echo $user_name;
 		return $user_name;
 	}
 
