@@ -41,5 +41,4 @@
 	}
 	/*above are shopping-cart functions */
 	addToCart($_SESSION['item']);
-	echo $_SESSION['item'];
 ?>
