@@ -93,26 +93,7 @@
 	}
 
 	$users = viewusers();
-	/*below are shopping-cart functions */
-	function addToCart($item_id) {
-		global $test;
-		$user_id=getUserIdByUserName($_SESSION['user']);
-		$query = 'INSERT into shopping-cart(quantity, item_id, user_id) VALUES(1,'. $item_id .','. $user_id .')';
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$statement->closeCursor();
-	}
 	
-	function getUserIdByUserName($username){
-		global $test;
-		$query = 'SELECT user_id FROM user_name WHERE user_name = '. $username;
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$user = $statement->fetch();
-		$statement-closeCursor();
-		return $user;
-	}
-	/*above are shopping-cart functions */
 ?>
 <ARTICLE>
    <HEAD>
@@ -206,7 +187,7 @@
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
-								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><?php $_SESSION['item']=$item['item_id']; ?><a href="addToCart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -269,7 +250,7 @@
 								<td>$<?php echo $gadget["price"]; ?></td>
 								<td><?php echo $gadget["genre"]; ?></td>
 								<td><?php echo $gadget["image_link"]; ?></td>
-								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><a href="#" id="link"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
