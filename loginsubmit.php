@@ -20,11 +20,11 @@
 	
 	function selectUsers($user){
 		global $test;
-		$query = 'SELECT * FROM user_name
+		$query = 'SELECT user_name FROM user_name
 			WHERE user_name='.$user;
 		$statement = $test->prepare($query);
 		$statement->execute();
-		$user_name = $statement->fetchAll();
+		$user_name = $statement->fetch();
 		$statement->closeCursor();
 		return $user_name;
 	}
