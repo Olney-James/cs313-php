@@ -1,6 +1,9 @@
 <?php
 	session_start();
-	$_SESSION['user']='test';
+	/* if($_SESSION['user'] and $_SESSION['password'] are valid,
+			continue
+		else
+			return to login.php */
 	function test() {
 		$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
 		$database = 'retail_site';
@@ -175,6 +178,7 @@
 							<th>Price</th>		
 							<th>Genre</th>
 							<th>Image</th>
+							<th> + </th>
 						  </tr>
 						<?php foreach ($items as $item): ?>
 							<tr>
@@ -182,6 +186,7 @@
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
+								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -194,6 +199,7 @@
 							<th>Price</th>		
 							<th>Genre</th>
 							<th>Image</th>
+							<th> + </th>
 						  </tr>
 						<?php foreach ($books as $book): ?>
 							<tr>
@@ -201,6 +207,7 @@
 								<td>$<?php echo $book["price"]; ?></td>
 								<td><?php echo $book["genre"]; ?></td>
 								<td><?php echo $book["image_link"]; ?></td>
+								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -213,6 +220,7 @@
 							<th>Price</th>		
 							<th>Genre</th>
 							<th>Image</th>
+							<th> + </th>
 						  </tr>
 						<?php foreach ($games as $game): ?>
 							<tr>
@@ -220,6 +228,7 @@
 								<td>$<?php echo $game["price"]; ?></td>
 								<td><?php echo $game["genre"]; ?></td>
 								<td><?php echo $game["image_link"]; ?></td>
+								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -232,6 +241,7 @@
 							<th>Price</th>		
 							<th>Genre</th>
 							<th>Image</th>
+							<th> + </th>
 						  </tr>
 						<?php foreach ($gadgets as $gadget): ?>
 							<tr>
@@ -239,6 +249,7 @@
 								<td>$<?php echo $gadget["price"]; ?></td>
 								<td><?php echo $gadget["genre"]; ?></td>
 								<td><?php echo $gadget["image_link"]; ?></td>
+								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
