@@ -7,6 +7,7 @@
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$statement->closeCursor();
+		echo $query;
 	}
 	
 	function getUserIdByUserName($username){
@@ -19,4 +20,5 @@
 		return $user;
 	}
 	/*above are shopping-cart functions */
+	addToCart($_SESSION['item']);
 ?>
