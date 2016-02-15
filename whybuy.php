@@ -182,12 +182,13 @@
 							<th> + </th>
 						  </tr>
 						<?php foreach ($items as $item): ?>
+							<?php $_SESSION['item'] = $item["item_id"]; ?>
 							<tr>
 								<td><?php echo $item["item_name"]; ?></td>
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
-								<td><?php $_SESSION['item']=$item["item_id"]; ?><a href="addToCart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><a href="addToCart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
