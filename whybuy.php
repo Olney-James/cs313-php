@@ -187,7 +187,7 @@
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
-								<td><?php $_SESSION['item']=$item['item_id']; ?><a href="addToCart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><?php $_SESSION['item']=$item["item_id"]; ?><a href="addToCart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
