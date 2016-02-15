@@ -26,7 +26,6 @@
 		$statement->execute();
 		$user_name = $statement->fetch();
 		$statement->closeCursor();
-		echo $user_name;
 		return $user_name;
 	}
 
@@ -50,6 +49,7 @@
 	$username = userExists($user);
 	//echo $user;
 	$user_name = selectUsers($user);
+	echo $user_name;
 	foreach($user_name as $u){
 		echo $u['user_name'];
 	}
