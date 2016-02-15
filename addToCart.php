@@ -24,11 +24,9 @@
 		global $test;
 		$user_id=getUserIdByUserName($_SESSION['user']);
 		$query = 'INSERT into shopping-cart(quantity, item_id, user_id) VALUES(1,'. $item_id .','. $user_id .')';
-		echo $query;
 		$statement = $test->prepare($query);
 		$statement->execute();
-		$statement->closeCursor();
-		
+		$statement->closeCursor();	
 	}
 	
 	function getUserIdByUserName($username){
