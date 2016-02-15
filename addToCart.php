@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	function test() {
 		$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
 		$database = 'retail_site';
