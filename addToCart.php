@@ -1,4 +1,6 @@
 <?php 
+require_once("databaseconnection.php");
+
 /*below are shopping-cart functions */
 	function addToCart($item_id) {
 		global $test;
@@ -20,4 +22,6 @@
 	}
 	/*above are shopping-cart functions */
 	addToCart($_GET['item']);
+	
+	//error_reporting(-1);
 ?>
