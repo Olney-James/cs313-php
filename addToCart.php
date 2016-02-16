@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	require_once("databaseconnection.php");
-	error_reporting(-1);
+	//error_reporting(-1);
 
 /*below are shopping-cart functions */
 	function addToCart($item_id) {
@@ -10,6 +10,12 @@
 		$query = "INSERT into shopping_cart(quantity, item_id, user_id) VALUES(1,".$item_id.",".$user['user_id'].")";
 		$statement = $test->prepare($query);
 		$statement->execute();
+		if ($statement->rowCount()){
+			$_SESSION['cart_msg'] = "item was successfully added";
+		}
+		else{
+			$_SESSION['cart_msg'] = "Item wasn't added. See your database administrator";
+		}
 		$statement->closeCursor();	
 	}
 	
@@ -25,5 +31,5 @@
 	/*above are shopping-cart functions */
 	addToCart($_GET['item']);
 	
-
+	header("Location: whybuy.php");
 ?>

@@ -1,6 +1,14 @@
 <?php
 	session_start();
 	$_SESSION['user']='test';
+	
+	//success msg or failure
+	if(isset($_SESSION['cart_msg'])){
+		echo $_SESSION['cart_msg'];
+		unset($_SESSION['cart_msg']);
+	}
+	
+	
 	/* if($_SESSION['user'] and $_SESSION['password'] are valid,
 			continue
 		else
