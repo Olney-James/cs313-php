@@ -18,46 +18,49 @@
 	}	
 	$test = test();
 	
-	function selectUsers($user){
-		global $test;
-		$query = 'SELECT user_name FROM user_name
-			WHERE user_name='.$user;
-		$statement = $test->prepare($query);
-		$statement->execute();
-		$user_name = $statement->fetch();
-		$statement->closeCursor();
-		return $user_name;
-	}
-
-	function userExists($username){
-		$isUser = selectUsers($username);
-		
-		if ($isUser == NULL) {
-			return FALSE;
-		}
-		else{
-			return TRUE;
-		}
-	}
 	
-	function verifyPassword() {
+
+	//function userExists($username){
+	//	$isUser = selectUsers($username);
 		
-	}
-	session_start();
-	global $test;
+	//	if ($isUser == NULL) {
+	//		return FALSE;
+	//	}
+	//	else{
+	//		return TRUE;
+	//	}
+	//}
+	
+	//function verifyPassword() {
+		
+	//}
+	function selectUsers(){
+			global $test;
+			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+			$test->beginTransaction();
+			$query = 'SELECT user_name FROM user_name
+				WHERE user_name='.$user;
+			$statement = $test->prepare($query);
+			$statement->commit();
+			$user_name = $statement->fetch();
+			$statement->closeCursor();
+			return $user_name;
+		}
+		$user_name=selectUsers();
+		echo $user_name;
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-	$test->beginTransaction();
-	$username = userExists($user);
-	$test->commit();
+
+
+	//$username = userExists($user);
 	//echo $user;
-	$user_name = selectUsers($user);
-	echo $user_name;
-	foreach($user_name as $u){
-		echo $u['user_name'];
-	}
-	if(userExists($user) == TRUE){
-		echo "user exists";
+	//$user_name = selectUsers($user);
+	//echo $user_name;
+	//foreach($user_name as $u){
+	//	echo $u['user_name'];
+	//}
+	//if(userExists($user) == TRUE){
+	//	echo "user exists";
+		//session_start();
 		//if(verifyPassword() == TRUE){
 			//$user_level=
 			//$_SESSION['user']=$user;
@@ -68,10 +71,10 @@
 		//else{
 		//	echo "invalid password";
 		//}
-	}
-	else{
-		echo "user does not exist";
-	}
+	//}
+	//else{
+	//	echo "user does not exist";
+	//}
 	
 
 ?>
