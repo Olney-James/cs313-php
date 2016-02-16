@@ -20,16 +20,16 @@
 	
 	
 
-	//function userExists($username){
-	//	$isUser = selectUsers($username);
+	function userExists(){
+		$isUser = selectUsers();
 		
-	//	if ($isUser == NULL) {
-	//		return FALSE;
-	//	}
-	//	else{
-	//		return TRUE;
-	//	}
-	//}
+		if ($isUser == NULL) {
+			return FALSE;
+		}
+		else{
+			return TRUE;
+		}
+	}
 	
 	//function verifyPassword() {
 		
@@ -37,7 +37,7 @@
 	function selectUsers(){
 			global $test;
 			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-			echo $user;
+			//echo $user;
 			//$test->beginTransaction();
 			$query = "SELECT user_name FROM user_name
 				WHERE user_name='$user'";
@@ -48,7 +48,7 @@
 			return $user_name;
 		}
 		$user_name=selectUsers();
-		print_r($user_name);
+		//print_r($user_name);
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
 
@@ -59,23 +59,23 @@
 	//foreach($user_name as $u){
 	//	echo $u['user_name'];
 	//}
-	//if(userExists($user) == TRUE){
-	//	echo "user exists";
-		//session_start();
-		//if(verifyPassword() == TRUE){
-			//$user_level=
-			//$_SESSION['user']=$user;
+	if(userExists() == TRUE){
+		echo "user exists";
+		session_start();
+		if(verifyPassword() == TRUE){
+			$user_level=
+			$_SESSION['user']=$user;
 
-			//$_SESSION['password']=$password;
-			//$_SESSION['user_level']=$user_level;
-		//}
-		//else{
-		//	echo "invalid password";
-		//}
-	//}
-	//else{
-	//	echo "user does not exist";
-	//}
+			$_SESSION['password']=$password;
+			$_SESSION['user_level']=$user_level;
+		}
+		else{
+			echo "invalid password";
+		}
+	}
+	else{
+		echo "user does not exist";
+	}
 	
 
 ?>
