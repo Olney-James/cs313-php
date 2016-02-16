@@ -42,12 +42,12 @@
 				WHERE user_name='.$user;
 			$statement = $test->prepare($query);
 			$statement->execute();
-			$user_name = $statement->fetch();
+			$user_name = $statement->fetchAll();
 			$statement->closeCursor();
 			return $user_name;
 		}
 		$user_name=selectUsers();
-		echo $user_name;
+		print_r($user_name);
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
 
