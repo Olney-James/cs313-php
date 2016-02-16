@@ -1,5 +1,6 @@
 <?php 
-require_once("databaseconnection.php");
+	session_start();
+	require_once("databaseconnection.php");
 
 /*below are shopping-cart functions */
 	function addToCart($item_id) {
