@@ -44,9 +44,12 @@
 		
 	}
 	session_start();
+	global $test;
 	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 	$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+	$test->beginTransaction();
 	$username = userExists($user);
+	$test->commit();
 	//echo $user;
 	$user_name = selectUsers($user);
 	echo $user_name;
