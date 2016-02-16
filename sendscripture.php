@@ -309,7 +309,7 @@ insertScripture();
 		</div>
 	<!-- above here is the tabs set up -->
 		<center>
-			<a href="search_scripture.php"><h3>View Scriptures</h3></a>
+			<a href="search_scripture.php"><h3>View Scriptures By Book</h3></a>
 			<a href="scriptureInsert.php"><h3>Add a scripture</h3></a>
 			<a href="index.html"><h3>Home</h3></a>
 		</center>

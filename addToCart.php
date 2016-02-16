@@ -3,7 +3,7 @@
 	function addToCart($item_id) {
 		global $test;
 		$user_id=getUserIdByUserName($_SESSION['user']);
-		$query = "INSERT into shopping_cart(quantity, item_id, user_id) VALUES(1,".$item_id.",".$user_id")";
+		$query = "INSERT into shopping_cart(quantity, item_id, user_id) VALUES(1,".$item_id.",".$user_id.")";
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$statement->closeCursor();	
@@ -19,5 +19,5 @@
 		return $user;
 	}
 	/*above are shopping-cart functions */
-	addToCart($_SESSION['item']);
+	addToCart($_GET['item']);
 ?>
