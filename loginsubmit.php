@@ -37,6 +37,7 @@
 	function selectUsers(){
 			global $test;
 			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+			echo $user;
 			//$test->beginTransaction();
 			$query = 'SELECT user_name FROM user_name
 				WHERE user_name='.$user;
