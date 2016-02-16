@@ -18,7 +18,7 @@
 		$statement = $test->prepare($query);
 		$statement->execute();
 		$user = $statement->fetch();
-		$statement-closeCursor();
+		$statement->closeCursor();
 		return $user;
 	}
 	/*above are shopping-cart functions */
