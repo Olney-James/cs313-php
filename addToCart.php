@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	require_once("databaseconnection.php");
+	error_reporting(-1);
 
 /*below are shopping-cart functions */
 	function addToCart($item_id) {
@@ -24,5 +25,5 @@
 	/*above are shopping-cart functions */
 	addToCart($_GET['item']);
 	
-	//error_reporting(-1);
+
 ?>
