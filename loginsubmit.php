@@ -31,9 +31,7 @@
 		}
 	}
 	
-	//function verifyPassword() {
-		
-	//}
+
 	function selectUsers(){
 			global $test;
 			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
@@ -77,5 +75,7 @@
 		echo "user does not exist";
 	}
 	
-
+		function verifyPassword() {
+		
+	}
 ?>
