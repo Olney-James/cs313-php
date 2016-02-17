@@ -1,10 +1,11 @@
 <?php
 	session_start();
 	$_SESSION['user']='test';
-	
+
 	//success msg or failure
 	if(isset($_SESSION['cart_msg'])){
-		echo $_SESSION['cart_msg'];
+        $message = $_SESSION['cart_msg'];
+        echo "<script type='text/javascript'>alert('$message');</script>";
 		unset($_SESSION['cart_msg']);
 	}
 	
@@ -82,15 +83,33 @@
 	}
 
 	$users = viewusers();
-	
+
+    function viewitemsbyuser(){
+        global $test;
+        $query = "SELECT * FROM item
+        INNER JOIN shopping_cart
+        ON item.item_id = shopping_cart.item_id
+        INNER JOIN user_name
+        ON shopping_cart.user_id = user_name.user_id
+		WHERE user_name.user_name = '".$_SESSION['user']."'
+		ORDER BY item_name ASC";
+        $statement = $test->prepare($query);
+        $statement->execute();
+        $wishes = $statement->fetchAll();
+        $statement->closeCursor();
+        return $wishes;
+    }
+
+$wishes = viewitemsbyuser();
+
 ?>
 <ARTICLE>
    <HEAD>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	   <style>
 			body {
 				background-color: #FFF8DC;
@@ -157,6 +176,7 @@
 			<li><a data-toggle="tab" href="#menu1">Books</a></li>
 			<li><a data-toggle="tab" href="#menu2">Games</a></li>
 			<li><a data-toggle="tab" href="#menu3">Gadgets</a></li>
+              <li><a data-toggle="tab" href="#menu4">Wish List</a></li>
 		  </ul>
 
 		  <div class="tab-content">
@@ -245,6 +265,25 @@
 						<?php endforeach; ?>
 					</table>
 			</div>
+              <div id="menu4" class="tab-pane fade">
+                  <h3>Wish List</h3>
+                  <table id="t01">
+                      <tr>
+                          <th>Item</th>
+                          <th>Price</th>
+                          <th>Genre</th>
+                          <th>Image</th>
+                      </tr>
+                      <?php foreach ($wishes as $wish): ?>
+                          <tr>
+                              <td><?php echo $wish["item_name"]; ?></td>
+                              <td>$<?php echo $wish["price"]; ?></td>
+                              <td><?php echo $wish["genre"]; ?></td>
+                              <td><?php echo $wish["image_link"]; ?></td>
+                          </tr>
+                      <?php endforeach; ?>
+                  </table>
+              </div>
 		  </div>
 		</div>
 	   <!-- above here is the tabs setup -->

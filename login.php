@@ -1,6 +1,11 @@
 <?php 
 	session_start();
-	
+	//success msg or failure
+	if(isset($_SESSION['login_msg'])){
+		$message = $_SESSION['login_msg'];
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		unset($_SESSION['login_msg']);
+	}
 ?>
 <ARTICLE>
    <HEAD>

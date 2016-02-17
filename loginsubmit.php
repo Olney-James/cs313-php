@@ -1,33 +1,16 @@
 <?php
-	function test() {
-		$server  = getenv('OPENSHIFT_MYSQL_DB_HOST');
-		$database = 'retail_site';
-		$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-		$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-		$dsn = 'mysql:host='.$server.';dbname='.$database;
+	session_start();
+	require_once("databaseconnection.php");
 
-		try{
-			$g1db = new PDO($dsn, $username, $password);
-			//echo "database connected";
-			return $g1db;
-		}
-		catch (PDOException $ex){
-			echo 'Error!:' . $ex->getMessage();
-			die();
-		} 	
-	}	
-	$test = test();
-	
-	
 
 	function userExists(){
 		$isUser = selectUsers();
 		
-		if ($isUser == NULL) {
-			return FALSE;
+		if (isset($isUser)) {
+			return TRUE;
 		}
 		else{
-			return TRUE;
+			return FALSE;
 		}
 	}
 	
@@ -35,6 +18,7 @@
 	function selectUsers(){
 			global $test;
 			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 			//echo $user;
 			//$test->beginTransaction();
 			$query = "SELECT user_name FROM user_name
@@ -47,8 +31,6 @@
 		}
 		$user_name=selectUsers();
 		//print_r($user_name);
-	$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-
 
 	//$username = userExists($user);
 	//echo $user;
@@ -59,23 +41,57 @@
 	//}
 	if(userExists() == TRUE){
 		echo "user exists";
-		session_start();
-		if(verifyPassword() == TRUE){
-			$user_level=
-			$_SESSION['user']=$user;
 
-			$_SESSION['password']=$password;
-			$_SESSION['user_level']=$user_level;
+
+		if(verifyPassword() == TRUE){
+			$_SESSION['user']=$user;
+			$location = "Location: whybuy.php";
+			//$_SESSION['password']=$password;
+			//$_SESSION['user_level']=$user_level;
+			echo "password is correct";
 		}
 		else{
-			echo "invalid password";
+			$_SESSION["login_msg"] = "invalid password";
+			$location = "Location: login.php";
+			echo "password is invalid";
 		}
 	}
 	else{
-		echo "user does not exist";
+		$_SESSION["login_msg"] = "user does not exist";
+		$location = "Location: login.php";
 	}
 	
-		function verifyPassword() {
-		
+		function selectPassword() {
+			global $test;
+			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+			//echo $user;
+			//$test->beginTransaction();
+			$query = "SELECT user_name FROM user_name
+				WHERE user_name='$user'
+				AND password=AES_ENCRYPT('$password', 'test')";
+			$statement = $test->prepare($query);
+			$statement->execute();
+			$user_name = $statement->fetchAll();
+			$statement->closeCursor();
+			return $user_name;
 	}
+
+
+		function verifyPassword(){
+			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+			echo $user.$password;
+			$password = selectPassword();
+
+			if ($password)) {
+				return TRUE;
+				echo "password is correct";
+			}
+			else{
+				return FALSE;
+				echo "password is incorrect";
+			}
+		}
+	//header($location);
 ?>

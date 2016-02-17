@@ -2,6 +2,22 @@
 	session_start();
 	require_once("databaseconnection.php");
 	//error_reporting(-1);
+	function viewitemsbyuserbyitem(){
+		global $test;
+		$query = "SELECT item_name, price, genre, image_link, item.item_id FROM item
+				INNER JOIN shopping_cart
+				ON item.item_id = shopping_cart.item_id
+				INNER JOIN user_name
+				ON shopping_cart.user_id = user_name.user_id
+				WHERE user_name.user_name = '".$_SESSION['user']."'
+				AND shopping_cart.item_id =".$_GET['item'];
+		$statement = $test->prepare($query);
+		$statement->execute();
+		$doubles = $statement->fetchAll();
+		$statement->closeCursor();
+		return $doubles;
+	}
+	$doubles = viewitemsbyuserbyitem();
 
 /*below are shopping-cart functions */
 	function addToCart($item_id) {
@@ -29,7 +45,10 @@
 		return $user;
 	}
 	/*above are shopping-cart functions */
-	addToCart($_GET['item']);
-	
+	if (isset($doubles)) {
+		$_SESSION['cart_msg'] = "this item is already in your wish list cart";
+	}else{
+		addToCart($_GET['item']);
+	}
 	header("Location: whybuy.php");
 ?>
