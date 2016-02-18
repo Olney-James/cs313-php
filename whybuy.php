@@ -9,7 +9,10 @@
 	
 	
 	if(isset($_SESSION['user'])) {
-		echo "login successful";
+		$user=$_SESSION['user'];
+		$message="Welcome $user!";
+		//echo $message;
+		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	else{
 		header("Location: login.php");
