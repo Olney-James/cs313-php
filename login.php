@@ -49,17 +49,20 @@
 <BODY>
 	   <H1>WhyBuy</H1>
 		<H2>Login</H2>
+	   <!--<H6>For testing purposes, use user: 'test' password: 'test'</H6>-->
 		<center>
 			<form action="loginsubmit.php" method="post">
 				<p>Username: <input type="text" name="username" size="10" maxlength="20"></p>
 				
-				<p>Password: <input type="text" name="password" size="10" maxlength="20"></p>
+				<p>Password: <input type="password" name="password" size="10" maxlength="20"></p>
 				
 				<br>
 				<input type="submit" value="Send" class="btn btn-default">
 			</form>	
 		</center>
-	
+	   <a href="register.php">
+		   <h3>Register for a username here</h3>
+	   </a><br>
 	<a href="index.html">
 		<h3>Home</h3>
 	</a>

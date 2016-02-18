@@ -291,9 +291,12 @@ $wishes = viewitemsbyuser();
 			
 	
 	<a href="index.html">
-		<h3>Home</h3>
-	</a>
+		   <h3>Home</h3>
+	   </a>
 	<p>User:<?php echo $_SESSION['user']; ?></p>
+	   <a href="login.php">
+		   <h3>logout</h3>
+	   </a>
 
 </BODY>
 </ARTICLE>
