@@ -13,9 +13,12 @@
 				AND shopping_cart.item_id =".$_GET['item'];
 		$statement = $test->prepare($query);
 		$statement->execute();
-		$doubles = $statement->fetchAll();
-		$statement->closeCursor();
-		return $doubles;
+		if ($statement->rowCount()) {
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
 	}
 	$doubles = viewitemsbyuserbyitem();
 
@@ -45,7 +48,7 @@
 		return $user;
 	}
 	/*above are shopping-cart functions */
-	if (isset($doubles)) {
+	if ($doubles == TRUE) {
 		$_SESSION['cart_msg'] = "this item is already in your wish list cart";
 	}else{
 		addToCart($_GET['item']);

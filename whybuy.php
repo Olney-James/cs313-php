@@ -10,9 +10,11 @@
 	
 	if(isset($_SESSION['user'])) {
 		$user=$_SESSION['user'];
-		$message="Welcome $user!";
-		//echo $message;
-		echo "<script type='text/javascript'>alert('$message');</script>";
+		if(isset($_SESSION['loginsuccess'])) {
+			$message=$_SESSION['loginsuccess'];
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			unset($_SESSION['loginsuccess']);
+		}
 	}
 	else{
 		header("Location: login.php");
@@ -197,7 +199,7 @@ $wishes = viewitemsbyuser();
 						<?php foreach ($items as $item): ?>
 							<!--<?php //$_SESSION['item'] = $item["item_id"]; ?>-->
 							<tr>
-								<td><?php echo $item["item_name"]; ?></td>
+								<td><strong><?php echo $item["item_name"]; ?></strong><a href="comment.php?item=<?php echo $item["item_id"]; ?>"> more...</a></td>
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
@@ -218,11 +220,11 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($books as $book): ?>
 							<tr>
-								<td><?php echo $book["item_name"]; ?></td>
+								<td><strong><?php echo $book["item_name"]; ?></strong><a href="comment.php?item=<?php echo $book["item_id"]; ?>"> more...</a></td>
 								<td>$<?php echo $book["price"]; ?></td>
 								<td><?php echo $book["genre"]; ?></td>
 								<td><?php echo $book["image_link"]; ?></td>
-								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><a href="addToCart.php?item=<?php echo $book["item_id"]; ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -239,11 +241,11 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($games as $game): ?>
 							<tr>
-								<td><?php echo $game["item_name"]; ?></td>
+								<td><strong><?php echo $game["item_name"]; ?></strong><a href="comment.php?item=<?php echo $game["item_id"]; ?>"> more...</a></td>
 								<td>$<?php echo $game["price"]; ?></td>
 								<td><?php echo $game["genre"]; ?></td>
 								<td><?php echo $game["image_link"]; ?></td>
-								<td><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><a href="addToCart.php?item=<?php echo $game["item_id"]; ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -260,11 +262,11 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($gadgets as $gadget): ?>
 							<tr>
-								<td><?php echo $gadget["item_name"]; ?></td>
+								<td><strong><?php echo $gadget["item_name"]; ?></strong><a href="comment.php?item=<?php echo $gadget["item_id"]; ?>"> more...</a></td>
 								<td>$<?php echo $gadget["price"]; ?></td>
 								<td><?php echo $gadget["genre"]; ?></td>
 								<td><?php echo $gadget["image_link"]; ?></td>
-								<td><a href="#" id="link"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
+								<td><a href="addToCart.php?item=<?php echo $gadget["item_id"]; ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -280,7 +282,7 @@ $wishes = viewitemsbyuser();
                       </tr>
                       <?php foreach ($wishes as $wish): ?>
                           <tr>
-                              <td><?php echo $wish["item_name"]; ?></td>
+                              <td><strong><?php echo $wish["item_name"]; ?></strong><a href="comment.php?item=<?php echo $wish["item_id"]; ?>"> more...</a></td>
                               <td>$<?php echo $wish["price"]; ?></td>
                               <td><?php echo $wish["genre"]; ?></td>
                               <td><?php echo $wish["image_link"]; ?></td>

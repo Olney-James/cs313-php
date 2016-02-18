@@ -44,6 +44,7 @@
 			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 			$_SESSION['user']=$user;
 			$location = "Location: whybuy.php";
+			$_SESSION['loginsuccess']="Welcome $user!";
 			//$_SESSION['password']=$password;
 			//$_SESSION['user_level']=$user_level;
 			echo "password is correct";
