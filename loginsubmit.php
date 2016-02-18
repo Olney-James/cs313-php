@@ -2,48 +2,46 @@
 	session_start();
 	require_once("databaseconnection.php");
 
-
-	function userExists(){
-		$isUser = selectUsers();
-		
-		if (isset($isUser)) {
+	function selectUsers(){
+		global $test;
+		$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+		$query = "SELECT user_name FROM user_name
+			WHERE user_name='$user'";
+		$statement = $test->prepare($query);
+		$statement->execute();
+		if ($statement->rowCount()) {
 			return TRUE;
 		}
 		else{
 			return FALSE;
 		}
 	}
-	
+	$user_name=selectUsers();
 
-	function selectUsers(){
-			global $test;
-			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-			//echo $user;
-			//$test->beginTransaction();
-			$query = "SELECT user_name FROM user_name
-				WHERE user_name='$user'";
-			$statement = $test->prepare($query);
-			$statement->execute();
-			$user_name = $statement->fetchAll();
-			$statement->closeCursor();
-			return $user_name;
+	function selectPassword() {
+		global $test;
+		$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+		$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+		$query = "SELECT user_name FROM user_name
+			WHERE user_name='$user'
+			AND password=AES_ENCRYPT('$password', 'test')";
+		$statement = $test->prepare($query);
+		$statement->execute();
+		if ($statement->rowCount()) {
+			return TRUE;
+			echo "password is correct";
 		}
-		$user_name=selectUsers();
-		//print_r($user_name);
+		else{
+			return FALSE;
+			echo "password is incorrect";
+		}
+	}
+	$password = selectPassword();
 
-	//$username = userExists($user);
-	//echo $user;
-	//$user_name = selectUsers($user);
-	//echo $user_name;
-	//foreach($user_name as $u){
-	//	echo $u['user_name'];
-	//}
-	if(userExists() == TRUE){
+	if($user_name == TRUE){
 		echo "user exists";
-
-
-		if(verifyPassword() == TRUE){
+		if($password == TRUE){
+			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 			$_SESSION['user']=$user;
 			$location = "Location: whybuy.php";
 			//$_SESSION['password']=$password;
@@ -60,38 +58,6 @@
 		$_SESSION["login_msg"] = "user does not exist";
 		$location = "Location: login.php";
 	}
-	
-		function selectPassword() {
-			global $test;
-			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-			//echo $user;
-			//$test->beginTransaction();
-			$query = "SELECT user_name FROM user_name
-				WHERE user_name='$user'
-				AND password=AES_ENCRYPT('$password', 'test')";
-			$statement = $test->prepare($query);
-			$statement->execute();
-			$user_name = $statement->fetchAll();
-			$statement->closeCursor();
-			return $user_name;
-	}
 
-
-		function verifyPassword(){
-			$user=filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-			$password=filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-			echo $user.$password;
-			$password = selectPassword();
-
-			if ($password)) {
-				return TRUE;
-				echo "password is correct";
-			}
-			else{
-				return FALSE;
-				echo "password is incorrect";
-			}
-		}
-	//header($location);
+	header($location);
 ?>

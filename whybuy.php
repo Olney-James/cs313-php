@@ -1,7 +1,5 @@
 <?php
 	session_start();
-	$_SESSION['user']='test';
-
 	//success msg or failure
 	if(isset($_SESSION['cart_msg'])){
         $message = $_SESSION['cart_msg'];
@@ -10,10 +8,13 @@
 	}
 	
 	
-	/* if($_SESSION['user'] and $_SESSION['password'] are valid,
-			continue
-		else
-			return to login.php */
+	if(isset($_SESSION['user'])) {
+		echo "login successful";
+	}
+	else{
+		header("Location: login.php");
+	}
+
 	require_once("databaseconnection.php");
 	
 	function viewitems() {
