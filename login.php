@@ -6,6 +6,7 @@
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		unset($_SESSION['login_msg']);
 	}
+	unset($_SESSION['user']);
 ?>
 <ARTICLE>
    <HEAD>
@@ -34,11 +35,15 @@
 				text-align: center;
 			}
 			
-			div.user {
-				height: 80px;
-				width: 160px;
-				box-shadow: 5px 5px 5px black;
-				float: right;
+			div.container {
+				margin: auto;
+				width: 40px;
+			}
+			a.whybuy:hover{
+				text-decoration: none;
+			}
+			a.whybuy:active {
+				text-decoration: none;
 			}
 		</style>
 		
@@ -47,26 +52,28 @@
       </TITLE>
    </HEAD>
 <BODY>
-	   <H1>WhyBuy</H1>
+	<a class="whybuy" href="whybuy.php"><H1>WhyBuy</H1></a>
 		<H2>Login</H2>
 	   <!--<H6>For testing purposes, use user: 'test' password: 'test'</H6>-->
-		<center>
+		<div class="container">
 			<form action="loginsubmit.php" method="post">
-				<p>Username: <input type="text" name="username" size="10" maxlength="20"></p>
+				<p><input type="text" name="username" size="10" maxlength="20" placeholder="Username"></p>
 				
-				<p>Password: <input type="password" name="password" size="10" maxlength="20"></p>
+				<p><input type="password" name="password" size="10" maxlength="20" placeholder="Password"></p>
 				
 				<br>
-				<input type="submit" value="Send" class="btn btn-default">
+				<center>
+					<input type="submit" value="Send" class="btn btn-default">
+				</center>
+
 			</form>	
-		</center>
+		</div>
 	   <a href="register.php">
 		   <h3>Register for a username here</h3>
 	   </a><br>
 	<a href="index.html">
-		<h3>Home</h3>
+		<h3><span class="glyphicon glyphicon-home"></span> Home</h3>
 	</a>
-	<p>User:<?php echo $_SESSION['user']; ?></p>
 
 </BODY>
 </ARTICLE>

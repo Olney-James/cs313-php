@@ -133,13 +133,19 @@ $wishes = viewitemsbyuser();
 			}
 			
 			p {
-				text-align: center;
+				text-align: left;
+				foreground: red;
 			}
-			
+
+			button.red {
+				font-size: 15px;
+				height: 25px;
+			}
 			div.user {
-				height: 80px;
-				width: 160px;
-				box-shadow: 5px 5px 5px black;
+				position: absolute;
+				right: 100px;
+				top: 10px;
+				width: 300px;
 				float: right;
 			}
 			
@@ -165,6 +171,12 @@ $wishes = viewitemsbyuser();
 				background-color: red;
 				color: white;
 			}
+			a.whybuy:hover{
+				text-decoration: none;
+			}
+		   strong{
+			   foreground-color:red;
+		   }
 		</style>
 		
       <TITLE>
@@ -173,7 +185,7 @@ $wishes = viewitemsbyuser();
    </HEAD>
 <BODY>
 
-	   <H1>WhyBuy</H1>
+	<a class="whybuy" href="whybuy.php"><H1>WhyBuy</H1></a>
 	   <!-- below here is the tabs -->
 	   <div class="container">
 		  <h2>Items</h2>
@@ -182,7 +194,7 @@ $wishes = viewitemsbyuser();
 			<li><a data-toggle="tab" href="#menu1">Books</a></li>
 			<li><a data-toggle="tab" href="#menu2">Games</a></li>
 			<li><a data-toggle="tab" href="#menu3">Gadgets</a></li>
-              <li><a data-toggle="tab" href="#menu4">Wish List</a></li>
+              <li><a data-toggle="tab" href="#menu4"><span class="glyphicon glyphicon-shopping-cart"></span> Wish List</a></li>
 		  </ul>
 
 		  <div class="tab-content">
@@ -199,7 +211,7 @@ $wishes = viewitemsbyuser();
 						<?php foreach ($items as $item): ?>
 							<!--<?php //$_SESSION['item'] = $item["item_id"]; ?>-->
 							<tr>
-								<td><strong><?php echo $item["item_name"]; ?></strong><a href="comment.php?item=<?php echo $item["item_id"]; ?>"> more...</a></td>
+								<td><strong><?php echo $item["item_name"]; ?></strong><a href="comment.php?item=<?php echo $item["item_id"]; ?>"> Read/Write review...</a></td>
 								<td>$<?php echo $item["price"]; ?></td>
 								<td><?php echo $item["genre"]; ?></td>
 								<td><?php echo $item["image_link"]; ?></td>
@@ -220,7 +232,7 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($books as $book): ?>
 							<tr>
-								<td><strong><?php echo $book["item_name"]; ?></strong><a href="comment.php?item=<?php echo $book["item_id"]; ?>"> more...</a></td>
+								<td><strong><?php echo $book["item_name"]; ?></strong><a href="comment.php?item=<?php echo $book["item_id"]; ?>"> Read/Write review...</a></td>
 								<td>$<?php echo $book["price"]; ?></td>
 								<td><?php echo $book["genre"]; ?></td>
 								<td><?php echo $book["image_link"]; ?></td>
@@ -241,7 +253,7 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($games as $game): ?>
 							<tr>
-								<td><strong><?php echo $game["item_name"]; ?></strong><a href="comment.php?item=<?php echo $game["item_id"]; ?>"> more...</a></td>
+								<td><strong><?php echo $game["item_name"]; ?></strong><a href="comment.php?item=<?php echo $game["item_id"]; ?>"> Read/Write review...</a></td>
 								<td>$<?php echo $game["price"]; ?></td>
 								<td><?php echo $game["genre"]; ?></td>
 								<td><?php echo $game["image_link"]; ?></td>
@@ -262,7 +274,7 @@ $wishes = viewitemsbyuser();
 						  </tr>
 						<?php foreach ($gadgets as $gadget): ?>
 							<tr>
-								<td><strong><?php echo $gadget["item_name"]; ?></strong><a href="comment.php?item=<?php echo $gadget["item_id"]; ?>"> more...</a></td>
+								<td><strong><?php echo $gadget["item_name"]; ?></strong><a href="comment.php?item=<?php echo $gadget["item_id"]; ?>"> Read/Write review...</a></td>
 								<td>$<?php echo $gadget["price"]; ?></td>
 								<td><?php echo $gadget["genre"]; ?></td>
 								<td><?php echo $gadget["image_link"]; ?></td>
@@ -282,7 +294,7 @@ $wishes = viewitemsbyuser();
                       </tr>
                       <?php foreach ($wishes as $wish): ?>
                           <tr>
-                              <td><strong><?php echo $wish["item_name"]; ?></strong><a href="comment.php?item=<?php echo $wish["item_id"]; ?>"> more...</a></td>
+                              <td><strong><?php echo $wish["item_name"]; ?></strong><a href="comment.php?item=<?php echo $wish["item_id"]; ?>"> Read/Write review...</a></td>
                               <td>$<?php echo $wish["price"]; ?></td>
                               <td><?php echo $wish["genre"]; ?></td>
                               <td><?php echo $wish["image_link"]; ?></td>
@@ -293,15 +305,19 @@ $wishes = viewitemsbyuser();
 		  </div>
 		</div>
 	   <!-- above here is the tabs setup -->
-			
-	
+
 	<a href="index.html">
-		   <h3>Home</h3>
-	   </a>
-	<p>User:<?php echo $_SESSION['user']; ?></p>
-	   <a href="login.php">
-		   <h3>logout</h3>
-	   </a>
+		<h3><span class="glyphicon glyphicon-home"></span> Home</h3>
+	</a>
+
+		<div class="user">
+			<p><i class="glyphicon glyphicon-user"></i><strong>  Account: <?php echo $_SESSION['user']; ?>  </strong>
+
+			<a href="login.php">
+				<strong>Logout</strong>
+			</a></p>
+		</div>
+
 
 </BODY>
 </ARTICLE>

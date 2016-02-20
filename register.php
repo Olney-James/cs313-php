@@ -30,12 +30,17 @@
                 text-align: center;
             }
 
-            div.user {
-                height: 80px;
-                width: 160px;
-                box-shadow: 5px 5px 5px black;
-                float: right;
+            div.container {
+                margin: auto;
+                width:40px;
             }
+            a.whybuy:hover{
+                text-decoration: none;
+            }
+            a.whybuy:active {
+                text-decoration: none;
+            }
+
         </style>
 
         <TITLE>
@@ -44,25 +49,32 @@
     </HEAD>
     <BODY>
         <!-- title register below WhyBuy -->
-        <H1>WhyBuy</H1>
+        <a class="whybuy" href="whybuy.php"><H1>WhyBuy</H1></a>
         <h3>Register</h3>
 
         <!-- below here is the form to submit -->
-        <center>
+        <div class="container">
             <form action="insertUser.php" method="post">
-                User Name:
-                <input type="text" name="user" size="10" maxlength="50"><br>
-                <!--Email(not required):
-                <input type="text" name="email" size="20" maxlength="50"><br>-->
-                Password:
-                <input type="password" name="password" size="10" maxlength="50">
-                <br>
-                <!--Verify Password:
-                <input type="text" name="password" size="10" maxlength="50">
-                <br>-->
-                <input type="submit" value="Send" class="btn btn-default">
+
+                    <input type="text" name="user" size="10" maxlength="50" placeholder="Username"><br>
+                    <!--Email(not required):
+                    <input type="text" name="email" size="20" maxlength="50"><br>-->
+
+                    <input type="password" name="password" size="10" maxlength="50" placeholder="Password">
+                    <br>
+                    <!--Verify Password:
+                    <input type="text" name="password" size="10" maxlength="50">
+                    <br>-->
+                <center>
+                    <input type="submit" value="Send" class="btn btn-default">
+                </center>
+
+
             </form>
-        </center>
+        </div>
+        <a href="index.html">
+            <h3><span class="glyphicon glyphicon-home"></span> Home</h3>
+        </a>
     </BODY>
 </ARTICLE>
 
