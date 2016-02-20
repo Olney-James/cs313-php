@@ -91,21 +91,17 @@
             a.whybuy:active {
                 text-decoration: none;
             }
-            button.red {
-                background-color: #f44336;
-                font-size: 15px;
-                padding: 5px 5px;
-                height: 30px;
+            p {
+                text-align: left;
+                foreground: red;
             }
+
             div.user {
                 position: absolute;
                 right: 100px;
                 top: 10px;
-                width: 160px;
+                width: 300px;
                 float: right;
-                border-style: solid;
-                border-width: 5px;
-                border-color: red;
             }
         </style>
 

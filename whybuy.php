@@ -137,10 +137,6 @@ $wishes = viewitemsbyuser();
 				foreground: red;
 			}
 
-			button.red {
-				font-size: 15px;
-				height: 25px;
-			}
 			div.user {
 				position: absolute;
 				right: 100px;
